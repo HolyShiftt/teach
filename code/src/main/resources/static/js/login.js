@@ -10,11 +10,11 @@ layui.use(['layer','element'], function() {
             method:'post',
             data:data.field,
             success : function(data) {
-                if (data.success){
+                if (data.code === 1){
                     layer.msg("登录成功", {
                         time : 2000
                     }, function() {
-                        window.location.href = "/index";
+                        window.location.href = "/";
                     })
                 }else{
                     layer.msg("用户名或密码错误");
