@@ -11,13 +11,14 @@ layui.use(['layer','element'], function() {
             data:data.field,
             success : function(data) {
                 if (data.code === 1){
-                    layer.msg("登录成功", {
+                    sessionStorage.setItem("realName",data.msg);
+                    layer.msg("登录成功，当前登录用户："+data.msg, {
                         time : 2000
                     }, function() {
                         window.location.href = "/";
                     })
                 }else{
-                    layer.msg("用户名或密码错误");
+                    layer.msg(data.msg);
                     layer.closeAll('loading');
                 }
             }
