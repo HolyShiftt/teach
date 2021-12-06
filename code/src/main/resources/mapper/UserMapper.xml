@@ -16,7 +16,15 @@
     <result column="picture" property="picture" jdbcType="VARCHAR" />
     <result column="role" property="role" jdbcType="INTEGER" />
   </resultMap>
+  <update id="updatePwd">
+    update user
+        set password = #{password}
+        where id = #{id}
+  </update>
   <select id="getUserByUsername" resultMap="BaseResultMap" resultType="com.xwc.teach.index.entity.User">
     select * from `user` where username = #{username}
+  </select>
+  <select id="getUserById" resultMap="BaseResultMap" resultType="com.xwc.teach.index.entity.User">
+    select * from `user` where id = #{id}
   </select>
 </mapper>

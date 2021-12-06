@@ -17,16 +17,6 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/")
-    public String page(HttpSession session) {
-        User user = (User)session.getAttribute("user");
-        if (null != session.getAttribute("user")){
-            return "/index";
-        }else{
-            return "/login";
-        }
-    }
-
     @RequestMapping("/login")
     @ResponseBody
     public Result login(@RequestParam(value="username",required=false)String username
@@ -39,7 +29,7 @@ public class LoginController {
         } else if (password.equals(user.getPassword())){
             session.setAttribute("user",user);
             result.setCode(1);
-            result.setMsg(user.getRealName());
+            result.setMsg(user);
         }else{
             result.setCode(0);
             result.setMsg("密码错误");

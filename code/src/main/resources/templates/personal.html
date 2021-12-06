@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>中小学智慧教学管理系统</title>
     <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/personal.css">
     <style type="text/css">
         .layui-this > nav {
             background-color: #f581a4 !important;
@@ -21,9 +22,9 @@
             <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
                 <i class="layui-icon layui-icon-spread-left"></i>
             </li>
-            <li class="layui-nav-item layui-hide-xs"><a href="course">课程表</a></li>
-            <li class="layui-nav-item layui-hide-xs"><a href="personal">个人信息</a></li>
-            <li class="layui-nav-item layui-hide-xs"><a href="myWork">我的题库</a></li>
+            <li class="layui-nav-item layui-hide-xs"><a href="">课程表</a></li>
+            <li class="layui-nav-item layui-hide-xs layui-this"><a href="">个人信息</a></li>
+            <li class="layui-nav-item layui-hide-xs"><a href="">我的题库</a></li>
             <li class="layui-nav-item">
                 <a href="javascript:;">我的考试</a>
                 <dl class="layui-nav-child">
@@ -46,16 +47,48 @@
     <div class="layui-body" style="padding-bottom: 0;position-left:0;left: 0;background: #F2F4F7;">
         <div style="padding: 15px;">
             <div class="layui-tab" lay-allowClose="true" lay-filter="tabs">
-
-                <div class="layui-tab-content" id="tabs-content">
+                <div class="layui-tab-content" id="tabs-content" style="text-align: center">
+                    <h1 style="color: #990000;margin-bottom: 30px">个人信息情况表</h1>
+                    <table class="tbb">
+                        <thead>
+                        <tbody>
+                        <tr>
+                            <td>姓名:</td>
+                            <td id="name"></td>
+                            <td>性别:</td>
+                            <td id="sex"></td>
+                            <td>年龄:</td>
+                            <td id="age"></td>
+                            <td rowspan="2" width="200px" ><img id="picture"/></td>
+                        </tr>
+                        <tr>
+                            <td>政治面貌:</td>
+                            <td id="politics"></td>
+                            <td>生日:</td>
+                            <td id="birth"></td>
+                            <td>民族:</td>
+                            <td id="nation"></td>
+                        </tr>
+                        <tr>
+                            <td>联系方式:</td>
+                            <td id="phone" colspan="3"></td>
+                            <td>邮箱:</td>
+                            <td id="mail" colspan="3"></td>
+                        </tr>
+                        </tbody>
+                        </thead>
+                    </table>
+                    <button class="layui-btn layui-btn-normal" id="updatePwd">修改密码</button>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
 
 </div>
 <script src="/js/layui/layui.js"></script>
 <script src="/js/head.js"></script>
+<script src="/js/personal.js"></script>
+
 </body>
 </html>
