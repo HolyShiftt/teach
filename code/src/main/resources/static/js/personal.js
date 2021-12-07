@@ -2,7 +2,7 @@ layui.use(['layer'], function () {
     var $ = layui.jquery,
         layer = layui.layer;
 
-
+    $("#personal").addClass("layui-this")
     var username = sessionStorage.getItem("username");
 
     // 初始化个人信息表格

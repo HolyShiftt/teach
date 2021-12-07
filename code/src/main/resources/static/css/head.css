@@ -1,0 +1,7 @@
+.layui-nav-bar{
+ display: none;
+}
+.layui-this > nav {
+    background-color: #f581a4 !important;
+}
+

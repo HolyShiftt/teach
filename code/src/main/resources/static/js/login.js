@@ -4,6 +4,7 @@ layui.use(['layer', 'element'], function () {
         form = layui.form,
         layer = layui.layer;
 
+    // 登录按钮
     form.on('submit(loginIn)', function (data) {
         layer.load();
         $.post("/login", {username: data.field.username, password: data.field.password}, function (data) {
@@ -11,6 +12,7 @@ layui.use(['layer', 'element'], function () {
                 sessionStorage.setItem("realName", data.msg.realName);
                 sessionStorage.setItem("username", data.msg.username);
                 sessionStorage.setItem("id", data.msg.id);
+                sessionStorage.setItem("role",data.msg.role)
                 layer.msg("登录成功，当前登录用户：" + data.msg.realName, {
                     time: 2000
                 }, function () {

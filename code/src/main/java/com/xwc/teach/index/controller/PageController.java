@@ -22,6 +22,11 @@ public class PageController {
         return "personal";
     }
 
+    @RequestMapping("/user")
+    public String user(){
+        return "user";
+    }
+
     @RequestMapping("/updatePwd")
     public String updatePwd(){
         return "updatePwd";

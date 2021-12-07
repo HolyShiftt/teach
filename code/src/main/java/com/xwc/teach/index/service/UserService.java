@@ -2,6 +2,8 @@ package com.xwc.teach.index.service;
 
 import com.xwc.teach.index.entity.User;
 
+import java.util.List;
+
 public interface UserService {
 
     User getUserById(Integer id);
@@ -9,5 +11,7 @@ public interface UserService {
     User getUserByUsername(String username);
 
     int updatePwd(Integer id,String password);
+
+    List<User> selectAll(Integer role,String name);
 
 }

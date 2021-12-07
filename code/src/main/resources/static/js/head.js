@@ -1,10 +1,14 @@
 layui.use(['layer', 'element'], function () {
     var $ = layui.jquery,
-        element = layui.element,
-        form = layui.form,
         layer = layui.layer;
 
+    // 右上角显示用户名
     $("#realName").text(sessionStorage.getItem("realName"))
+
+    // 根据角色判断添加的菜单
+    if (sessionStorage.getItem("role") == 1){
+        $("#headBar").append("<li class='layui-nav-item layui-hide-xs' id='user'><a href='user'>用户管理</a></li>")
+    }
 
     // 注销
     $("#out").click(function () {

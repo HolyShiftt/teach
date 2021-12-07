@@ -15,6 +15,7 @@
     <result column="politics" property="politics" jdbcType="VARCHAR" />
     <result column="picture" property="picture" jdbcType="VARCHAR" />
     <result column="role" property="role" jdbcType="INTEGER" />
+    <result column="roleName" property="roleName" jdbcType="INTEGER" />
   </resultMap>
   <update id="updatePwd">
     update user
@@ -27,4 +28,17 @@
   <select id="getUserById" resultMap="BaseResultMap" resultType="com.xwc.teach.index.entity.User">
     select * from `user` where id = #{id}
   </select>
+    <select id="selectAll" resultMap="BaseResultMap"  resultType="com.xwc.teach.index.entity.User">
+      select *, r.rolename as roleName from `user` as u
+      left join role as r on
+      u.role = r.id
+      <where>
+        <if test="role != null and role !=''">
+          and u.role = #{role}
+        </if>
+        <if test="name != null and name !=''">
+          and u.real_name like concat('%',#{name},'%')
+        </if>
+      </where>
+    </select>
 </mapper>

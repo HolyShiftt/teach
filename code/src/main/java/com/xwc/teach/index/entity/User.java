@@ -39,4 +39,6 @@ public class User {
     private String picture;
 
     private Integer role;
+
+    private String roleName;
 }

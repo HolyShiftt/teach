@@ -1,12 +1,18 @@
 package com.xwc.teach.index.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.xwc.teach.commons.Pages;
 import com.xwc.teach.commons.Result;
+import com.xwc.teach.commons.Table;
 import com.xwc.teach.index.entity.User;
 import com.xwc.teach.index.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -22,7 +28,6 @@ public class UserController {
         User userByUsername = userService.getUserByUsername(username);
         result.setCode(1);
         result.setMsg(userByUsername);
-
         return result;
     }
 
@@ -49,4 +54,13 @@ public class UserController {
         }
         return result;
     }
+
+    @RequestMapping("/userList")
+    @ResponseBody
+    public Table userList(Pages pages,Integer role,String name){
+        Page<?> page = PageHelper.startPage(pages.getPage(), pages.getLimit());
+        List<User> users = userService.selectAll(role,name);
+        return Table.success(Long.valueOf(page.getTotal()),users);
+    }
+
 }
