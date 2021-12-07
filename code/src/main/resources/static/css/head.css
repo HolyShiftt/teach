@@ -4,4 +4,7 @@
 .layui-this > nav {
     background-color: #f581a4 !important;
 }
+.layui-layout-admin .layui-logo{
+    box-shadow:none
+}
 
