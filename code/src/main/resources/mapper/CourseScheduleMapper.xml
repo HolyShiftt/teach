@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xwc.teach.index.dao.CourseScheduleDao">
+    <select id="getList" resultType="com.xwc.teach.index.entity.CourseSchedule">
+        select * from course_schedule s left join course_time t
+        on s.num = t.course_num
+        where grade = #{grade} and s_class = #{sClass}
+
+    </select>
+</mapper>

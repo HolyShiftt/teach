@@ -1,6 +1,6 @@
 package com.xwc.teach.index.service.impl;
 
-import com.xwc.teach.index.dao.RoleMapper;
+import com.xwc.teach.index.dao.RoleDao;
 import com.xwc.teach.index.entity.Role;
 import com.xwc.teach.index.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +12,10 @@ import java.util.List;
 public class RoleServiceImpl implements RoleService {
 
     @Autowired
-    private RoleMapper roleMapper;
+    private RoleDao roleDao;
 
     @Override
     public List<Role> selectAll() {
-        return roleMapper.selectAll();
+        return roleDao.selectAll();
     }
 }

@@ -1,6 +1,6 @@
 package com.xwc.teach.index.service.impl;
 
-import com.xwc.teach.index.dao.UserMapper;
+import com.xwc.teach.index.dao.UserDao;
 import com.xwc.teach.index.entity.User;
 import com.xwc.teach.index.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,25 +12,25 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserDao userDao;
 
     @Override
     public User getUserById(Integer id) {
-        return userMapper.getUserById(id);
+        return userDao.getUserById(id);
     }
 
     @Override
     public User getUserByUsername(String username) {
-        return userMapper.getUserByUsername(username);
+        return userDao.getUserByUsername(username);
     }
 
     @Override
     public int updatePwd(Integer id, String password) {
-        return  userMapper.updatePwd(id,password);
+        return  userDao.updatePwd(id,password);
     }
 
     @Override
     public List<User> selectAll(Integer role,String name) {
-        return userMapper.selectAll(role,name);
+        return userDao.selectAll(role,name);
     }
 }
