@@ -2,6 +2,9 @@ layui.use(['layer', 'element'], function () {
     var $ = layui.jquery,
         layer = layui.layer;
 
+    if (sessionStorage.getItem("realName")== null){
+        window.location.href = "/";
+    }
     // 右上角显示用户名
     $("#realName").text(sessionStorage.getItem("realName"))
 
@@ -16,10 +19,12 @@ layui.use(['layer', 'element'], function () {
             "<dd><a href=''>考试安排</a></dd>" +
             "<dd><a href=''>历史考试</a></dd>" +
             "</dl>" +
+            "</li><li class='layui-nav-item layui-hide-xs' id='chat'><a href='chat'>聊天室</a></li>"+
             "</li><li class='layui-nav-item layui-hide-xs' id='user'><a href='user'>用户管理</a></li>");
     }else if (sessionStorage.getItem("role") == 2) {
         $("#headBar").append("<li class='layui-nav-item layui-hide-xs' id='personal'><a href='personal'>个人信息</a></li>" +
-            "</li><li class='layui-nav-item layui-hide-xs' id='user'><a href='user'>用户管理</a></li>");
+            "</li><li class='layui-nav-item layui-hide-xs' id='user'><a href='user'>用户管理</a></li>"+
+            "</li><li class='layui-nav-item layui-hide-xs' id='chat'><a href='chat'>聊天室</a></li>");
     }
 
 

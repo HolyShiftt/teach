@@ -32,4 +32,9 @@ public class PageController {
         return "updatePwd";
     }
 
+    @RequestMapping("/chat")
+    public String chat(){
+        return "chat";
+    }
+
 }
