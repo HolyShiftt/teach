@@ -8,3 +8,8 @@
     box-shadow:none
 }
 
+.layui-body{
+    padding-bottom: 0;
+    position-left:0;
+    left: 0;
+}

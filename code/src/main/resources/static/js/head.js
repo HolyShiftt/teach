@@ -13,13 +13,8 @@ layui.use(['layer', 'element'], function () {
     // 根据角色判断添加的菜单
     if (sessionStorage.getItem("role") == 1) {
         $("#headBar").append("<li class='layui-nav-item layui-hide-xs' id='personal'><a href='personal'>个人信息</a></li>" +
-            "<li class='layui-nav-item layui-hide-xs' id='work'><a href='work'>我的题库</a></li>" +
-            "<li class='layui-nav-item'><a href='javascript:;'>我的考试</a>" +
-            "<dl class='layui-nav-child'>" +
-            "<dd><a href=''>考试安排</a></dd>" +
-            "<dd><a href=''>历史考试</a></dd>" +
-            "</dl>" +
-            "</li><li class='layui-nav-item layui-hide-xs' id='chat'><a href='chat'>聊天室</a></li>"+
+            "<li class='layui-nav-item layui-hide-xs' id='courseManage'><a href='course'>课程表管理</a></li>" +
+            "<li class='layui-nav-item layui-hide-xs' id='chat'><a href='chat'>聊天室</a></li>"+
             "</li><li class='layui-nav-item layui-hide-xs' id='user'><a href='user'>用户管理</a></li>");
     }else if (sessionStorage.getItem("role") == 2) {
         $("#headBar").append("<li class='layui-nav-item layui-hide-xs' id='personal'><a href='personal'>个人信息</a></li>" +

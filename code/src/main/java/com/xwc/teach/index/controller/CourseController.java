@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
+@RequestMapping("/course")
 public class CourseController {
 
     @Autowired
@@ -21,6 +22,13 @@ public class CourseController {
     @ResponseBody
     public Table courseScheduleServiceList(){
         List<CourseSchedule> list = courseScheduleService.getList(1, 1);
-        return Table.success(Long.valueOf(0),list);
+        return Table.success(list);
+    }
+
+    @RequestMapping("/allCourseScheduleServiceList")
+    @ResponseBody
+    public Table allCourseScheduleServiceList(){
+        List<CourseSchedule> list = courseScheduleService.getList(1, 1);
+        return Table.success(list);
     }
 }

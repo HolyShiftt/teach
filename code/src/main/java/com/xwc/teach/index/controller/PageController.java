@@ -37,4 +37,9 @@ public class PageController {
         return "chat";
     }
 
+    @RequestMapping("/course")
+    public String course(){
+        return "course";
+    }
+
 }

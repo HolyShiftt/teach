@@ -4,7 +4,7 @@
     <select id="getList" resultType="com.xwc.teach.index.entity.CourseSchedule">
         select * from course_schedule s left join course_time t
         on s.num = t.course_num
-        where grade = #{grade} and s_class = #{sClass}
+        where s.grade = #{grade} and s_class = #{sClass}
 
     </select>
 </mapper>

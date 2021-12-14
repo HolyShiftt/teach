@@ -5,9 +5,10 @@ layui.use(['layer','table'], function () {
 
     table.render({
         elem: '#course'
-        , url: '/courseScheduleServiceList'
+        , url: '/course/courseScheduleServiceList'
         , cols: [[
-             {field: 'startTime', title: '时间', align: 'center'}
+             {field: 'startTime', title: '开始时间', align: 'center'}
+            , {field: 'endTime', title: '结束时间', align: 'center'}
             , {field: 'mondayCourse', title: '周一', align: 'center'}
             , {field: 'tuesdayCourse', title: '周二', align: 'center'}
             , {field: 'wednesdayCourse', title: '周三', align: 'center'}

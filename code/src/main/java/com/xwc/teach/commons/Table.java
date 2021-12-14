@@ -20,16 +20,29 @@ public class Table implements Serializable {
         this.count = count;
         this.data = data;
     }
+    public Table(Integer code, String msg, Object data) {
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
+    }
 
     public Table(){}
 
+
+
     public static Table newInstance(Integer code, String msg, Long count, Object data){
         return new Table(code,msg,count,data);
+    }
+    private static Table newInstance(Integer code, String msg, Object data) {
+        return new Table(code,msg,data);
     }
 
     public static Table success(Long count,Object data){
         return newInstance(SUCCESS_CODE,SUCCESS_MSG,count,data);
     }
+    public static Table success(Object data){ return newInstance(SUCCESS_CODE,SUCCESS_MSG,data); }
+
+
 
     private Integer code;
     private String msg;
