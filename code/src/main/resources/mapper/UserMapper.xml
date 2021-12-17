@@ -22,8 +22,10 @@
         set password = #{password}
         where id = #{id}
   </update>
-  <select id="getUserByUsername" resultMap="BaseResultMap" resultType="com.xwc.teach.index.entity.User">
-    select * from `user` where username = #{username}
+  <select id="getStudentByUsername" resultMap="BaseResultMap" resultType="com.xwc.teach.index.entity.User">
+    select * from `user` u left join
+    student s on s.user_id = u.id
+     where username = #{username}
   </select>
   <select id="getUserById" resultMap="BaseResultMap" resultType="com.xwc.teach.index.entity.User">
     select * from `user` where id = #{id}

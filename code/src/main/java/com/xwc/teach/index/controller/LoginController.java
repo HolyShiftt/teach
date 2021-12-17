@@ -17,12 +17,12 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/login")
+    @RequestMapping("/stuLogin")
     @ResponseBody
     public Result login(@RequestParam(value="username",required=false)String username
             , @RequestParam(value="password",required=false)String password, HttpSession session) {
         Result result = new Result();
-        User user = userService.getUserByUsername(username);
+        User user = userService.getStudentByUsername(username);
         if (null == user){
             result.setCode(0);
             result.setMsg("用户名不存在");

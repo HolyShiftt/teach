@@ -6,6 +6,7 @@
     <title>中小学智慧教学管理系统</title>
     <link rel="stylesheet" href="/js/layui/css/layui.css">
     <link rel="stylesheet" href="/css/head.css">
+    <link rel="stylesheet" href="/css/index.css">
     <style type="text/css">
         .layui-this > nav {
             background-color: #f581a4 !important;
@@ -31,13 +32,31 @@
     </div>
 
     <div class="layui-body" style="background: #F2F4F7;">
-            <div class="layui-container" style="padding: 15px;">
+            <div class="layui-container">
                 <div class="layui-row" style="text-align: center">
-                    <div class="layui-col-md9">
+                    <div class="layui-col-md9" style="padding-right: 50px">
+                        <h1>一年级(1)班课程表</h1>
                         <table id="course"></table>
                     </div>
                     <div class="layui-col-md3">
-                        你的内容 3/12
+                        <div style="height: 50%;background: #fff;" >
+                            <div class="notices-title">
+                                <div class="gg">通知消息</div>
+                                <a href="javascript:;" id="punish" >更多</a>
+                            </div>
+                            <ul style="margin:0 10px;text-align: left"class="notice">
+                                <li >
+                                    <span class="pointer"></span>
+                                    <span style="padding-left:20px;cursor: pointer;">系统使用说明</span>
+                                    <p>2019-02-28</p>
+                                </li>
+                                <li >
+                                    <span class="pointer"></span>
+                                    <span style="padding-left:20px;cursor: pointer;">系统使用说明</span>
+                                    <p>2019-02-28</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
         </div>

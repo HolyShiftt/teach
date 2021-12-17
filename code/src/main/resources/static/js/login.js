@@ -5,18 +5,20 @@ layui.use(['layer', 'element'], function () {
         layer = layui.layer;
 
     // 登录按钮
-    form.on('submit(loginIn)', function (data) {
+    form.on('submit(stuLoginIn)', function (data) {
         layer.load();
-        $.post("/login", {username: data.field.username, password: data.field.password}, function (data) {
+        $.post("/stuLogin", {username: data.field.username, password: data.field.password}, function (data) {
+            console.log(data)
             if (data.code === 1) {
                 sessionStorage.setItem("realName", data.msg.realName);
                 sessionStorage.setItem("username", data.msg.username);
                 sessionStorage.setItem("id", data.msg.id);
                 sessionStorage.setItem("role",data.msg.role)
+                sessionStorage.setItem("grade",data.msg.grade)
                 layer.msg("登录成功，当前登录用户：" + data.msg.realName, {
                     time: 2000
                 }, function () {
-                    window.location.href = "/";
+                    // window.location.href = "/";
                 })
             } else {
                 layer.msg(data.msg);

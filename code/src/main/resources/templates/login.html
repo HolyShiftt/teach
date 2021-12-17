@@ -13,31 +13,86 @@
     <div class="container-login">
         <div class="wrap-login">
             <div class="layui-col-md6"
-                 style="background-image: url('img/login.jpg');background-repeat:no-repeat;background-size:contain;">
+                 style="background-image: url('img/login.jpg');background-repeat:no-repeat;background-size:contain;margin-top: 80px">
             </div>
             <div class="layui-col-md6 layui-form">
                 <form class="login-form" style="margin-left: 100px;">
                     <span class="login-form-title">欢迎登陆智慧教学管理系统</span>
-                    <div class="wrap-input validate-input">
-                        <input class="input" type="text" name="username" id="username" placeholder="请输入账号/手机号">
-                        <span class="focus-input"></span>
-                        <span class="symbol-input">
+                    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">学生登录</li>
+                            <li>老师登录</li>
+                            <li>管理员登录</li>
+                        </ul>
+                        <div class="layui-tab-content">
+                            <div class="layui-tab-item layui-show">
+                                <div class="wrap-input validate-input">
+                                    <input class="input" type="text" name="username" placeholder="请输入账号/手机号">
+                                    <span class="focus-input"></span>
+                                    <span class="symbol-input"><i class="layui-icon" style="font-size: 20px;">&#xe66f;</i></span>
+                                </div>
+                                <div class="wrap-input validate-input">
+                                    <input class="input" type="password" name="password" placeholder="请输入密码">
+                                    <span class="focus-input"></span>
+                                    <span class="symbol-input"><i class="layui-icon" style="font-size: 20px;">&#xe683;</i></span>
+                                </div>
+                                <div class="container-login-form-btn">
+                                    <button class="login-form-btn" lay-filter="studentLoginIn" lay-submit="studentLoginIn">学生登陆
+                                    </button>
+                                </div>
+                                <div class="p-t-12" style="text-align: center;margin-top: 20px">
+                                    <a class="txt2" href="javascript:">忘记密码？</a>
+                                </div>
+                            </div>
+                            <div class="layui-tab-item">
+                                <div class="wrap-input validate-input">
+                                    <input class="input" type="text" name="username" placeholder="请输入账号/手机号">
+                                    <span class="focus-input"></span>
+                                    <span class="symbol-input">
                             <i class="layui-icon" style="font-size: 20px;">&#xe66f;</i>
 					</span>
-                    </div>
-                    <div class="wrap-input validate-input">
-                        <input class="input" type="password" name="password" id="password" placeholder="请输入密码">
-                        <span class="focus-input"></span>
-                        <span class="symbol-input">
+                                </div>
+                                <div class="wrap-input validate-input">
+                                    <input class="input" type="password" name="password" placeholder="请输入密码">
+                                    <span class="focus-input"></span>
+                                    <span class="symbol-input">
                             <i class="layui-icon" style="font-size: 20px;">&#xe683;</i>
 					</span>
+                                </div>
+                                <div class="container-login-form-btn">
+                                    <button class="login-form-btn" lay-filter="teacherLoginIn" lay-submit="teacherLoginIn">老师登陆
+                                    </button>
+                                </div>
+                                <div class="p-t-12" style="text-align: center;margin-top: 20px">
+                                    <a class="txt2" href="javascript:">忘记密码？</a>
+                                </div>
+                            </div>
+                            <div class="layui-tab-item">
+                            <div class="wrap-input validate-input">
+                                <input class="input" type="text" name="username" placeholder="请输入账号/手机号">
+                                <span class="focus-input"></span>
+                                <span class="symbol-input">
+                            <i class="layui-icon" style="font-size: 20px;">&#xe66f;</i>
+					</span>
+                            </div>
+                            <div class="wrap-input validate-input">
+                                <input class="input" type="password" name="password" placeholder="请输入密码">
+                                <span class="focus-input"></span>
+                                <span class="symbol-input">
+                            <i class="layui-icon" style="font-size: 20px;">&#xe683;</i>
+					</span>
+                            </div>
+                            <div class="container-login-form-btn">
+                                <button class="login-form-btn" lay-filter="adminLoginIn" lay-submit="">管理员登陆
+                                </button>
+                            </div>
+                            <div class="p-t-12" style="text-align: center;margin-top: 20px">
+                                <a class="txt2" href="javascript:">忘记密码？</a>
+                            </div>
+                        </div>
+                        </div>
                     </div>
-                    <div class="container-login-form-btn">
-                        <button class="login-form-btn" id="loginIn" lay-filter="loginIn" lay-submit="">登陆</button>
-                    </div>
-                    <div class="p-t-12" style="text-align: center;margin-top: 20px">
-                        <a class="txt2" href="javascript:">忘记密码？</a>
-                    </div>
+
                 </form>
             </div>
         </div>

@@ -1,0 +1,35 @@
+.layui-container{
+    padding: 15px;margin: 0;width: 100%
+}
+.notices-title{
+    border-bottom:#EEEEEE solid 1px;
+    line-height: 45px;
+    display: flex;
+    padding:0 20px;
+    justify-content: space-between;
+}
+.gg{
+    background: url("../img/index/gg.png") no-repeat left center;
+    padding-left: 25px;
+}
+.pointer {
+    border-radius: 50px;
+    width: 8px;
+    height: 8px;
+    background: #F25959FF;
+    display: inline-block;
+}
+.notice li{
+    border-bottom:#EEEEEE solid 1px;
+    font-size: 16px;
+    padding:8px 0;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.notice li p{
+    color: #888888;
+    font-size: 14px;
+    padding-top:10px;
+}

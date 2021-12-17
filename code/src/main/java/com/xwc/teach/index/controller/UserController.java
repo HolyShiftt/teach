@@ -21,11 +21,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/personalInfo")
+    @RequestMapping("/stuInfo")
     @ResponseBody
     public Result personalInfo(String username){
         Result result = new Result();
-        User userByUsername = userService.getUserByUsername(username);
+        User userByUsername = userService.getStudentByUsername(username);
         result.setCode(1);
         result.setMsg(userByUsername);
         return result;
