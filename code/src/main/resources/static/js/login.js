@@ -18,7 +18,7 @@ layui.use(['layer', 'element'], function () {
                 layer.msg("登录成功，当前登录用户：" + data.msg.realName, {
                     time: 2000
                 }, function () {
-                    // window.location.href = "/";
+                    window.location.href = "/";
                 })
             } else {
                 layer.msg(data.msg);
