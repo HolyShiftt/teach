@@ -25,7 +25,7 @@ public class UserController {
     @ResponseBody
     public Result personalInfo(String username){
         Result result = new Result();
-        User userByUsername = userService.getStudentByUsername(username);
+        User userByUsername = userService.getByUsername(username, 3);
         result.setCode(1);
         result.setMsg(userByUsername);
         return result;

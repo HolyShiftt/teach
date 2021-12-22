@@ -22,10 +22,20 @@
         set password = #{password}
         where id = #{id}
   </update>
-  <select id="getStudentByUsername" resultMap="BaseResultMap" resultType="com.xwc.teach.index.entity.User">
-    select * from `user` u left join
-    student s on s.user_id = u.id
-     where username = #{username}
+  <select id="getByUsername" resultMap="BaseResultMap" resultType="com.xwc.teach.index.entity.User">
+    select * from `user` u
+    <if test="role == 3">
+      left join
+      student s on s.user_id = u.id
+    </if>
+    <if test="role == 4">
+      left join
+      teacher t on t.user_id = u.id
+    </if>
+    <where>
+      and username = #{username}
+      and role = #{role}
+    </where>
   </select>
   <select id="getUserById" resultMap="BaseResultMap" resultType="com.xwc.teach.index.entity.User">
     select * from `user` where id = #{id}

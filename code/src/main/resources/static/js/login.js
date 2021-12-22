@@ -4,11 +4,9 @@ layui.use(['layer', 'element'], function () {
         form = layui.form,
         layer = layui.layer;
 
-    // 登录按钮
-    form.on('submit(stuLoginIn)', function (data) {
+    function login(data){
         layer.load();
-        $.post("/stuLogin", {username: data.field.username, password: data.field.password}, function (data) {
-            console.log(data)
+        $.post("/Login", {username: data.field.username, password: data.field.password,role: data.field.role}, function (data) {
             if (data.code === 1) {
                 sessionStorage.setItem("realName", data.msg.realName);
                 sessionStorage.setItem("username", data.msg.username);
@@ -25,6 +23,20 @@ layui.use(['layer', 'element'], function () {
                 layer.closeAll('loading');
             }
         });
+    }
+    // 登录按钮
+    form.on('submit(stuLoginIn)', function (data) {
+        login(data)
+        return false;
+    })
+    // 登录按钮
+    form.on('submit(teacherLoginIn)', function (data) {
+        login(data)
+        return false;
+    })
+    // 登录按钮
+    form.on('submit(adminLoginIn)', function (data) {
+        login(data)
         return false;
     })
 

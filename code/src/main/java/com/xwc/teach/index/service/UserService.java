@@ -8,7 +8,7 @@ public interface UserService {
 
     User getUserById(Integer id);
 
-    User getStudentByUsername(String username);
+    User getByUsername(String username,Integer role);
 
     int updatePwd(Integer id,String password);
 
