@@ -4,9 +4,10 @@ layui.use(['layer'], function () {
 
     $("#personal").addClass("layui-this")
     var username = sessionStorage.getItem("username");
+    var role = sessionStorage.getItem("role");
 
     // 初始化个人信息表格
-    $.post("user/personalInfo",{"username":username}, function (d) {
+    $.post("user/personalInfo",{"username":username, "role":role}, function (d) {
         var user = d.msg;
         $("#name").text(user.realName)
         $("#sex").text(user.sex)

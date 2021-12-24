@@ -21,11 +21,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/stuInfo")
+    @RequestMapping("/personalInfo")
     @ResponseBody
-    public Result personalInfo(String username){
+    public Result personalInfo(String username,Integer role){
         Result result = new Result();
-        User userByUsername = userService.getByUsername(username, 3);
+        User userByUsername = userService.getByUsername(username, role);
         result.setCode(1);
         result.setMsg(userByUsername);
         return result;
@@ -61,6 +61,67 @@ public class UserController {
         Page<?> page = PageHelper.startPage(pages.getPage(), pages.getLimit());
         List<User> users = userService.selectAll(role,name);
         return Table.success(Long.valueOf(page.getTotal()),users);
+    }
+
+    @RequestMapping("/userAdd")
+    @ResponseBody
+    public Result userAdd(User user){
+        Result result = new Result();
+        // 判断是否存在同一角色同一用户名
+        User byUsername = userService.getByUsername(user.getUsername(), user.getRole());
+        if (byUsername == null){
+            int code = userService.userAdd(user);
+            result.setCode(code);
+            if (code == 1){
+                result.setMsg("添加成功");
+            }else{
+                result.setMsg("添加失败");
+            }
+        }else{
+            result.setCode(0);
+            result.setMsg("同一角色用户名重复");
+        }
+        return result;
+    }
+
+    @RequestMapping("/userDel")
+    @ResponseBody
+    public Result userDel(Integer id){
+        Result result = new Result();
+        int code = userService.userDel(id);
+        result.setCode(code);
+        if (code == 1){
+            result.setMsg("删除成功");
+        }else{
+            result.setMsg("删除失败");
+        }
+        return result;
+    }
+
+    @RequestMapping("/userInfo")
+    @ResponseBody
+    public User userInfo(Integer id){
+       return userService.userInfo(id);
+    }
+
+    @RequestMapping("/userUpd")
+    @ResponseBody
+    public Result userUpd(User user){
+        Result result = new Result();
+        User byUsername = userService.getByUsername(user.getUsername(), user.getRole());
+        if (byUsername == null){
+            int code = userService.userUpd(user);
+            result.setCode(code);
+            if (code == 1){
+                result.setMsg("修改成功");
+            }else{
+                result.setMsg("修改失败");
+            }
+        }else{
+            result.setCode(0);
+            result.setMsg("同一角色用户名重复");
+        }
+        return result;
     }
 
 }

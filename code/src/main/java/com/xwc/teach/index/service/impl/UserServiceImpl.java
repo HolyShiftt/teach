@@ -33,4 +33,24 @@ public class UserServiceImpl implements UserService {
     public List<User> selectAll(Integer role,String name) {
         return userDao.selectAll(role,name);
     }
+
+    @Override
+    public int userAdd(User user) {
+        return userDao.userAdd(user.getUsername(), user.getRealName(), user.getPassword(), user.getRole());
+    }
+
+    @Override
+    public int userDel(Integer id) {
+        return userDao.userDel(id);
+    }
+
+    @Override
+    public User userInfo(Integer id) {
+        return userDao.userInfo(id);
+    }
+
+    @Override
+    public int userUpd(User user) {
+        return userDao.userUpd(user.getUsername(), user.getRealName(), user.getPassword(), user.getRole(), user.getId());
+    }
 }

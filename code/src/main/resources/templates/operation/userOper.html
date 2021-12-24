@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户添加</title>
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+</head>
+<body style="margin: 10px">
+<div class="layer_self_wrap">
+    <form class="layui-form" lay-filter="userForm" id="userForm" style="margin-top: 20px">
+        <div style="padding-right:50px">
+            <input type="text" name="id" id="id" class="layui-input" style="display: none">
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名<span style="color: red">*</span></label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" autocomplete="off" class="layui-input" lay-verify="required">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">真实姓名<span style="color: red">*</span></label>
+                <div class="layui-input-block">
+                    <input type="text" name="realName" autocomplete="off" class="layui-input" lay-verify="required">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码<span style="color: red">*</span></label>
+                <div class="layui-input-block">
+                    <input type="password" name="password" autocomplete="off" class="layui-input" lay-verify="required">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">职位<span style="color: red">*</span></label>
+                <div class="layui-input-block">
+                    <select name="role" id="role">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item" style="text-align: center">
+            <div class="layui-input-block" style="margin-left: 0">
+                <button class="layui-btn" lay-submit lay-filter="submit">确定</button>
+                <button type="button" class="layui-btn layui-btn-primary" id="close">关闭</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="/js/layui/layui.js"></script>
+<script src="/js/operation/userOper.js"></script>
+
+</body>
+</html>

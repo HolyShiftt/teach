@@ -14,4 +14,12 @@ public interface UserService {
 
     List<User> selectAll(Integer role,String name);
 
+    int userAdd(User user);
+
+    int userDel(Integer id);
+
+    User userInfo(Integer id);
+
+    int userUpd(User user);
+
 }

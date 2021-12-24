@@ -27,6 +27,11 @@ public class PageController {
         return "user";
     }
 
+    @RequestMapping("/userOper")
+    public String userOper(){
+        return "operation/userOper";
+    }
+
     @RequestMapping("/updatePwd")
     public String updatePwd(){
         return "updatePwd";

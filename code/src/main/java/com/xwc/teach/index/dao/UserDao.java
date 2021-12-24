@@ -16,4 +16,12 @@ public interface UserDao {
 
     List<User> selectAll(Integer role,String name);
 
+    int userAdd(String username, String realName, String password, Integer role);
+
+    int userDel(Integer id);
+
+    User userInfo(Integer id);
+
+    int userUpd(String username, String realName, String password, Integer role, Integer id);
+
 }

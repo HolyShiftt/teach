@@ -17,12 +17,26 @@
     <result column="role" property="role" jdbcType="INTEGER" />
     <result column="roleName" property="roleName" jdbcType="INTEGER" />
   </resultMap>
-  <update id="updatePwd">
-    update user
+    <insert id="userAdd">
+      insert into user(username, real_name, password,role)
+      values(#{username},#{realName},#{password},#{role})
+    </insert>
+    <update id="updatePwd">
+    update `user`
         set password = #{password}
         where id = #{id}
   </update>
-  <select id="getByUsername" resultMap="BaseResultMap" resultType="com.xwc.teach.index.entity.User">
+  <update id="userUpd">
+    update `user`
+    set username = #{username},real_name = #{realName},
+    password = #{password}, role= #{role}
+    where id = #{id}
+  </update>
+  <delete id="userDel">
+      delete from `user`
+        where id = #{id}
+    </delete>
+    <select id="getByUsername" resultMap="BaseResultMap" resultType="com.xwc.teach.index.entity.User">
     select * from `user` u
     <if test="role == 3">
       left join
@@ -53,4 +67,7 @@
         </if>
       </where>
     </select>
+  <select id="userInfo" resultType="com.xwc.teach.index.entity.User">
+    select * from `user` where id = #{id}
+  </select>
 </mapper>
