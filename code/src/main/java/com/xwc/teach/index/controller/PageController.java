@@ -16,6 +16,10 @@ public class PageController {
             return "/login";
         }
     }
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
 
     @RequestMapping("/personal")
     public String personal(){

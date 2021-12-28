@@ -2,8 +2,8 @@ layui.use(['layer', 'element'], function () {
     var $ = layui.jquery,
         layer = layui.layer;
 
-    if (sessionStorage.getItem("realName")== null){
-        window.location.href = "/";
+    if (!sessionStorage.getItem("realName")){
+        window.location.href = "/login";
     }
     // 右上角显示用户名
     $("#realName").text(sessionStorage.getItem("realName"))
@@ -35,7 +35,7 @@ layui.use(['layer', 'element'], function () {
                         icon: 6,
                         time: 2000
                     }, function () {
-                        window.location.href = "/";
+                        window.location.href = "/login";
                     })
                 }
             })

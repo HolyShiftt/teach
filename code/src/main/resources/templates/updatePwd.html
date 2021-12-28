@@ -54,9 +54,10 @@
                         if (d.code === 1) {
                             layer.msg(d.msg, {
                                 icon: 6,
-                                time: 1000
+                                time: 2000
                             }, function () {
-                                parent.layer.closeAll();
+                                parent.window.location.href = "/login";
+                                sessionStorage.clear();
                             })
                         } else {
                             layer.alert(d.msg)

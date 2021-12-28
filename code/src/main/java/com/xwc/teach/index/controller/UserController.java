@@ -46,7 +46,7 @@ public class UserController {
             int success = userService.updatePwd(id, password);
             if (success==1){
                 result.setCode(1);
-                result.setMsg("密码修改成功");
+                result.setMsg("密码修改成功,请重新登录");
             }else{
                 result.setCode(0);
                 result.setMsg("密码修改失败");
