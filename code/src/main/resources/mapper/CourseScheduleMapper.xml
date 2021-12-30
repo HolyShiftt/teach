@@ -3,7 +3,7 @@
 <mapper namespace="com.xwc.teach.index.dao.CourseScheduleDao">
     <select id="getList" resultType="com.xwc.teach.index.entity.CourseSchedule">
         select * from course_schedule s left join course_time t
-        on s.num = t.course_num and s.grade = t.grade
+        on s.num = t.num and s.grade = t.grade
         where s.grade = #{grade} and s_class = #{sClass}
     </select>
 </mapper>

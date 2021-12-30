@@ -24,4 +24,6 @@ public interface UserDao {
 
     int userUpd(String username, String realName, String password, Integer role, Integer id);
 
+    int updPersonal(User user);
+
 }

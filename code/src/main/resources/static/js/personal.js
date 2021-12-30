@@ -1,3 +1,4 @@
+var personal;
 layui.use(['layer'], function () {
     var $ = layui.jquery,
         layer = layui.layer;
@@ -9,6 +10,7 @@ layui.use(['layer'], function () {
     // 初始化个人信息表格
     $.post("user/personalInfo",{"username":username, "role":role}, function (d) {
         var user = d.msg;
+        personal = d.msg;
         $("#name").text(user.realName)
         $("#sex").text(user.sex)
         $("#age").text(user.age)
@@ -27,6 +29,15 @@ layui.use(['layer'], function () {
             type : 2,
             area : [ '20%', '40%' ],
             content : "/updatePwd"
+        })
+    })
+    // 修改用户信息按钮
+    $("#updatePersonal").click(function (data) {
+        layer.open({
+            title : '修改个人信息',
+            type : 2,
+            area : [ '40%', '80%' ],
+            content : "/updateUser"
         })
     })
 

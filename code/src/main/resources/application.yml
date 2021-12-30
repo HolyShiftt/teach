@@ -1,5 +1,6 @@
 server:
   port: 8080
+  max-http-header-size: 10000000
 
 spring:
   datasource:
@@ -12,3 +13,4 @@ mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   configuration:
     map-underscore-to-camel-case: true
+

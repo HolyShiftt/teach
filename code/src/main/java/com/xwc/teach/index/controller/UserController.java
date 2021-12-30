@@ -11,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -109,7 +112,7 @@ public class UserController {
     public Result userUpd(User user){
         Result result = new Result();
         User byUsername = userService.getByUsername(user.getUsername(), user.getRole());
-        if (byUsername == null){
+        if (byUsername == null || byUsername.getId().equals(user.getId())){
             int code = userService.userUpd(user);
             result.setCode(code);
             if (code == 1){
@@ -124,4 +127,23 @@ public class UserController {
         return result;
     }
 
+    // 将图片转化成二进制保存
+    @RequestMapping("/uploadPic")
+    @ResponseBody
+    public Result uploadPic(MultipartFile file) throws IOException {
+        Result result = new Result();
+        byte[] s = file.getBytes();
+        result.setMsg(s);
+        return result;
+    }
+
+    @RequestMapping("/updPersonal")
+    @ResponseBody
+    public Result updPersonal(User user) {
+        Result result = new Result();
+        int code = userService.updPersonal(user);
+        result.setCode(code);
+        result.setMsg("修改成功");
+        return result;
+    }
 }

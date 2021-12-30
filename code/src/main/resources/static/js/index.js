@@ -9,13 +9,13 @@ layui.use(['layer','table'], function () {
         , cols: [[
              {field: 'startTime', title: '开始时间', align: 'center'}
             , {field: 'endTime', title: '结束时间', align: 'center'}
-            , {field: 'mondayCourse', title: '周一', align: 'center'}
-            , {field: 'tuesdayCourse', title: '周二', align: 'center'}
-            , {field: 'wednesdayCourse', title: '周三', align: 'center'}
-            , {field: 'thursdayCourse', title: '周四', align: 'center'}
-            , {field: 'fridayCourse', title: '周五', align: 'center'}
-            , {field: 'saturdayCourse', title: '周六', align: 'center'}
-            , {field: 'sundayCourse', title: '周天', align: 'center'}
+            , {field: 'monday', title: '周一', align: 'center'}
+            , {field: 'tuesday', title: '周二', align: 'center'}
+            , {field: 'wednesday', title: '周三', align: 'center'}
+            , {field: 'thursday', title: '周四', align: 'center'}
+            , {field: 'friday', title: '周五', align: 'center'}
+            , {field: 'saturday', title: '周六', align: 'center'}
+            , {field: 'sunday', title: '周天', align: 'center'}
         ]]
     });
 

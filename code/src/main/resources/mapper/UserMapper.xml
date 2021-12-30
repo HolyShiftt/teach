@@ -32,7 +32,14 @@
     password = #{password}, role= #{role}
     where id = #{id}
   </update>
-  <delete id="userDel">
+    <update id="updPersonal">
+      update `user`
+      set real_name = #{realName}, sex = #{sex}, age = #{age},
+      politics = #{politics}, birth = #{birth}, nation = #{nation},
+      phone = #{phone}, mail = #{mail}, picture = #{picture}
+      where id = #{id}
+    </update>
+    <delete id="userDel">
       delete from `user`
         where id = #{id}
     </delete>

@@ -1,6 +1,7 @@
 package com.xwc.teach.index.service;
 
 import com.xwc.teach.index.entity.User;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -21,5 +22,7 @@ public interface UserService {
     User userInfo(Integer id);
 
     int userUpd(User user);
+
+    int updPersonal(User user);
 
 }

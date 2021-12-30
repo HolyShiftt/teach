@@ -5,7 +5,10 @@ import com.xwc.teach.index.entity.User;
 import com.xwc.teach.index.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -52,5 +55,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public int userUpd(User user) {
         return userDao.userUpd(user.getUsername(), user.getRealName(), user.getPassword(), user.getRole(), user.getId());
+    }
+
+    @Override
+    public int updPersonal(User user) {
+        return userDao.updPersonal(user);
     }
 }

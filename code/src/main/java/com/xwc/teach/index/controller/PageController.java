@@ -38,7 +38,7 @@ public class PageController {
 
     @RequestMapping("/updatePwd")
     public String updatePwd(){
-        return "updatePwd";
+        return "operation/updatePwd";
     }
 
     @RequestMapping("/chat")
@@ -51,4 +51,8 @@ public class PageController {
         return "course";
     }
 
+    @RequestMapping("/updateUser")
+    public String updateUser(){
+        return "operation/personalOper";
+    }
 }
