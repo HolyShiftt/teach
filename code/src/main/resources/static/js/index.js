@@ -14,8 +14,6 @@ layui.use(['layer','table'], function () {
             , {field: 'wednesday', title: '周三', align: 'center'}
             , {field: 'thursday', title: '周四', align: 'center'}
             , {field: 'friday', title: '周五', align: 'center'}
-            , {field: 'saturday', title: '周六', align: 'center'}
-            , {field: 'sunday', title: '周天', align: 'center'}
         ]]
     });
 
