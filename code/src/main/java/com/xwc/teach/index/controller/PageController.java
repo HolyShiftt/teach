@@ -55,4 +55,9 @@ public class PageController {
     public String updateUser(){
         return "operation/personalOper";
     }
+
+    @RequestMapping("/notices")
+    public String notice(){
+        return "notices";
+    }
 }
