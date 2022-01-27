@@ -56,7 +56,7 @@ public class NoticeController {
 
     @RequestMapping("/noticeInfo")
     @ResponseBody
-    public User noticeInfo(Integer id){
+    public Notice noticeInfo(Integer id){
         return noticeService.noticeInfo(id);
     }
 
