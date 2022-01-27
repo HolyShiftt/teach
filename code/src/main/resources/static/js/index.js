@@ -5,7 +5,7 @@ layui.use(['layer','table'], function () {
 
     table.render({
         elem: '#course'
-        , url: '/course/courseScheduleServiceList'
+        , url: '/course/courseScheduleList'
         , cols: [[
              {field: 'startTime', title: '开始时间', align: 'center'}
             , {field: 'endTime', title: '结束时间', align: 'center'}

@@ -18,16 +18,16 @@ public class CourseController {
     @Autowired
     private CourseScheduleService courseScheduleService;
 
-    @RequestMapping("/courseScheduleServiceList")
+    @RequestMapping("/courseScheduleList")
     @ResponseBody
-    public Table courseScheduleServiceList(){
+    public Table courseScheduleList(){
         List<CourseSchedule> list = courseScheduleService.getList(1, 1);
         return Table.success(list);
     }
 
-    @RequestMapping("/allCourseScheduleServiceList")
+    @RequestMapping("/allCourseScheduleList")
     @ResponseBody
-    public Table allCourseScheduleServiceList(){
+    public Table allCourseScheduleList(){
         List<CourseSchedule> list = courseScheduleService.getList(1, 1);
         return Table.success(list);
     }

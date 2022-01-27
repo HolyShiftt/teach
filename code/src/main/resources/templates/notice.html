@@ -31,10 +31,27 @@
         </ul>
     </div>
     <div class="layui-body">
-        11111
+        <div style="margin:auto;width: 80%;text-align: center">
+            <form class="layui-form layui-form-pane" style="margin-top: 20px">
+                <div class="layui-form-item">
+                    <div style="float: left">
+                        <button type="button" class="layui-btn layui-btn-normal" id="addNotice"><i class="layui-icon">&#xe654;</i>添加</button>
+                    </div>
+                    <div style="float: right">
+                        <label class="layui-form-label">标题</label>
+                        <div class="layui-input-inline">
+                            <input id="title" name="title" autocomplete="off" class="layui-input" type="text"/>
+                        </div>
+                        <button type="button" class="layui-btn layui-btn-search" id="search"><i class="layui-icon">&#xe615;</i>搜索</button>
+                    </div>
+                </div>
+            </form>
+            <table id="noticeTable" lay-filter="noticeTable"></table>
+        </div>
     </div>
 </div>
 </body>
 <script src="/js/layui/layui.js"></script>
 <script src="/js/head.js"></script>
+<script src="/js/notice.js"></script>
 </html>

@@ -14,8 +14,10 @@ layui.use(['layer', 'element'], function () {
     if (sessionStorage.getItem("role") == 1) {
         $("#headBar").append("<li class='layui-nav-item layui-hide-xs' id='personal'><a href='personal'>个人信息</a></li>" +
             "<li class='layui-nav-item layui-hide-xs' id='courseManage'><a href='course'>课程表管理</a></li>" +
-            "<li class='layui-nav-item layui-hide-xs' id='notices'><a href='notices'>公告通知</a></li>" +
+            "<li class='layui-nav-item layui-hide-xs' id='notice'><a href='notice'>公告通知</a></li>" +
             "<li class='layui-nav-item layui-hide-xs' id='chat'><a href='chat'>聊天室</a></li>"+
+            "<li class='layui-nav-item layui-hide-xs' id='examTeach'><a href='examTeach'>发布考试</a></li>"+
+            "<li class='layui-nav-item layui-hide-xs' id='examStu'><a href='examStu'>我的考试</a></li>"+
             "</li><li class='layui-nav-item layui-hide-xs' id='user'><a href='user'>用户管理</a></li>");
     }else if (sessionStorage.getItem("role") == 2) {
         $("#headBar").append("<li class='layui-nav-item layui-hide-xs' id='personal'><a href='personal'>个人信息</a></li>" +
@@ -34,6 +36,7 @@ layui.use(['layer', 'element'], function () {
                     layer.msg("注销成功", {
                         icon: 6,
                         time: 2000
+
                     }, function () {
                         window.location.href = "/login";
                     })

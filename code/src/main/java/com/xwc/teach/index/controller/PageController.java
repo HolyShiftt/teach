@@ -56,8 +56,8 @@ public class PageController {
         return "operation/personalOper";
     }
 
-    @RequestMapping("/notices")
+    @RequestMapping("/notice")
     public String notice(){
-        return "notices";
+        return "notice";
     }
 }

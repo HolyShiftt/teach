@@ -2,6 +2,7 @@ package com.xwc.teach.index.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -19,7 +20,12 @@ public class CourseSchedule {
     private String saturday;
     private String sunday;
 
-    private String startTime;
-    private String endTime;
+    @JsonFormat(pattern = "HH:mm",timezone = "GMT+8")
+    @DateTimeFormat(pattern = "HH:mm")
+    private Date startTime;
+
+    @JsonFormat(pattern = "HH:mm",timezone = "GMT+8")
+    @DateTimeFormat(pattern = "HH:mm")
+    private Date endTime;
 
 }

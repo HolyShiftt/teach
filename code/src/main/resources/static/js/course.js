@@ -10,7 +10,7 @@ layui.use(['layer','form'], function () {
 
     var courseTable = table.render({
         elem: '#courseTable'
-        , url: '/course/allCourseScheduleServiceList'
+        , url: '/course/allCourseScheduleList'
         , page: true
         , cols: [[
             {field: 'grade', title: '年级', align: 'center'}
