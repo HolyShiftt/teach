@@ -60,4 +60,14 @@ public class PageController {
     public String notice(){
         return "notice";
     }
+
+    @RequestMapping("/exam")
+    public String exam(){
+        return "exam/exam";
+    }
+
+    @RequestMapping("/examTeacher")
+    public String examTeacher(){
+        return "exam/examTeacher";
+    }
 }

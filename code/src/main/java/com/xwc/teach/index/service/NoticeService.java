@@ -1,7 +1,6 @@
 package com.xwc.teach.index.service;
 
 import com.xwc.teach.index.entity.Notice;
-import com.xwc.teach.index.entity.User;
 
 import java.util.List;
 
