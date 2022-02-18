@@ -70,4 +70,9 @@ public class PageController {
     public String examTeacher(){
         return "exam/examTeacher";
     }
+
+    @RequestMapping("/examOper")
+    public String examOper(){
+        return "operation/examOper";
+    }
 }

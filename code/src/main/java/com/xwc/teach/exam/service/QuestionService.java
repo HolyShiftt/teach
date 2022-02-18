@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface QuestionService {
 
-    List<Question> selectAll();
+    List<Question> selectAll(String subject,String search);
 
     int questionAdd(Question question);
 

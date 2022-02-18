@@ -19,8 +19,8 @@ public class QuestionController {
 
     @RequestMapping("/questionList")
     @ResponseBody
-    public Table questionList(){
-        List<Question> list = questionService.selectAll();
+    public Table questionList(String subject,String search){
+        List<Question> list = questionService.selectAll(subject,search);
         return Table.success(list);
     }
 
@@ -71,4 +71,6 @@ public class QuestionController {
         }
         return result;
     }
+
+
 }

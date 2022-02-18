@@ -16,10 +16,13 @@
     </delete>
 
     <select id="selectAll" resultType="com.xwc.teach.exam.entity.Question">
-      select * from question
+      select * from exam_question where subject = #{subject}
+        <if test="search != null and search !=''">
+            and title like concat('%',#{search},'%')
+        </if>
     </select>
     <select id="questionInfo" resultType="com.xwc.teach.exam.entity.Question">
-        select * from question where id = #{id}
+        select * from exam_question where id = #{id}
     </select>
 
 

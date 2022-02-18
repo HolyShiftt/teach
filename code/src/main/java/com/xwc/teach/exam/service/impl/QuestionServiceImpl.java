@@ -15,8 +15,8 @@ public class QuestionServiceImpl implements QuestionService {
     private QuestionDao questionDao;
 
     @Override
-    public List<Question> selectAll() {
-        return questionDao.selectAll();
+    public List<Question> selectAll(String subject,String search) {
+        return questionDao.selectAll(subject,search);
     }
 
     @Override

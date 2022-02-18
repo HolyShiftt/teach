@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface QuestionDao {
-    List<Question> selectAll();
+    List<Question> selectAll(String subject,String search);
 
     int questionAdd(Question question);
 
