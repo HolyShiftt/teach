@@ -17,14 +17,15 @@
 
     <select id="selectAll" resultType="com.xwc.teach.index.entity.Notice">
       select * from notice
-        order by create_time asc
-      <if test="limit != null and limit !=''">
-          limit ${limit}
-      </if>
-
+      order by create_time asc
+      limit ${limit}
     </select>
     <select id="noticeInfo" resultType="com.xwc.teach.index.entity.Notice">
         select * from notice where id = #{id}
+    </select>
+    <select id="selectAll2" resultType="com.xwc.teach.index.entity.Notice">
+        select * from notice
+      order by create_time asc
     </select>
 
 

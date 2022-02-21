@@ -10,7 +10,7 @@ import java.util.Date;
 public class CourseSchedule {
     private Integer id;
     private Integer grade;
-    private Integer sClass;
+    private Integer sclass;
     private Integer num;
     private String monday;
     private String tuesday;

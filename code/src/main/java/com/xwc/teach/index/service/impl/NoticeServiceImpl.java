@@ -23,6 +23,10 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
+    public List<Notice> selectAll2() {
+        return noticeDao.selectAll2();
+    }
+    @Override
     public int noticeAdd(Notice notice) {
         Date date = new Date();
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");

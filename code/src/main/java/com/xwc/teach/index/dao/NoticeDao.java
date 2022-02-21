@@ -11,6 +11,8 @@ public interface NoticeDao {
 
     List<Notice> selectAll(Integer limit);
 
+    List<Notice> selectAll2();
+
     int noticeAdd(Notice notice);
 
     int noticeDel(Integer id);

@@ -1,5 +1,8 @@
 package com.xwc.teach.index.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.xwc.teach.commons.Pages;
 import com.xwc.teach.commons.Result;
 import com.xwc.teach.commons.Table;
 import com.xwc.teach.index.entity.Notice;
@@ -21,9 +24,15 @@ public class NoticeController {
 
     @RequestMapping("/noticeList")
     @ResponseBody
-    public Table noticeList(Integer limit){
-        List<Notice> list = noticeService.selectAll(limit);
-        return Table.success(list);
+    public Table noticeList(Integer limit, Pages pages){
+        if (limit==5){
+            List<Notice> list = noticeService.selectAll(limit);
+            return Table.success(list);
+        } else{
+            Page<?> page = PageHelper.startPage(pages.getPage(), pages.getLimit());
+            List<Notice> list = noticeService.selectAll2();
+            return Table.success(Long.valueOf(page.getTotal()),list);
+        }
     }
 
     @RequestMapping("/noticeAdd")

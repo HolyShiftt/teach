@@ -51,6 +51,11 @@ public class PageController {
         return "course";
     }
 
+    @RequestMapping("/courseOper")
+    public String courseOper(){
+        return "operation/courseOper";
+    }
+
     @RequestMapping("/updateUser")
     public String updateUser(){
         return "operation/personalOper";

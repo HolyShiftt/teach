@@ -6,35 +6,78 @@
 </head>
 <body style="margin: 10px">
 <div class="layer_self_wrap">
-    <form class="layui-form" lay-filter="userForm" id="userForm" style="margin-top: 20px">
+    <form class="layui-form" lay-filter="courseForm" id="courseForm" style="margin-top: 20px">
         <div style="padding-right:50px">
             <input type="text" name="id" id="id" class="layui-input" style="display: none">
             <div class="layui-form-item">
                 <label class="layui-form-label">年级<span style="color: red">*</span></label>
                 <div class="layui-input-block">
-                    <input type="text" name="username" autocomplete="off" class="layui-input" lay-verify="required">
+                    <input type="text" name="grade" autocomplete="off" class="layui-input" lay-verify="required">
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label">真实姓名<span style="color: red">*</span></label>
+                <label class="layui-form-label">班级<span style="color: red">*</span></label>
                 <div class="layui-input-block">
-                    <input type="text" name="realName" autocomplete="off" class="layui-input" lay-verify="required">
+                    <input type="text" name="sclass" autocomplete="off" class="layui-input" lay-verify="required">
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label">密码<span style="color: red">*</span></label>
+                <label class="layui-form-label">节次<span style="color: red">*</span></label>
                 <div class="layui-input-block">
-                    <input type="password" name="password" autocomplete="off" class="layui-input" lay-verify="required">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">职位<span style="color: red">*</span></label>
-                <div class="layui-input-block">
-                    <select name="role" id="role">
+                    <select name="num" id="num">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
                     </select>
                 </div>
             </div>
-        </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">周一</label>
+                <div class="layui-input-block">
+                    <input type="text" name="monday" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">周二</label>
+                <div class="layui-input-block">
+                    <input type="text" name="tuesday" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">周三</label>
+                <div class="layui-input-block">
+                    <input type="text" name="wednesday" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">周四</label>
+                <div class="layui-input-block">
+                    <input type="text" name="thursday" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">周五</label>
+                <div class="layui-input-block">
+                    <input type="text" name="friday" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">周六</label>
+                <div class="layui-input-block">
+                    <input type="text" name="saturday" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">周天</label>
+                <div class="layui-input-block">
+                    <input type="text" name="sunday" autocomplete="off" class="layui-input">
+                </div>
+            </div>
         <div class="layui-form-item" style="text-align: center">
             <div class="layui-input-block" style="margin-left: 0">
                 <button class="layui-btn" lay-submit lay-filter="submit">确定</button>

@@ -71,7 +71,7 @@ layui.use(['layer','form'], function () {
         courseTable.reload({
             where: {
                 grade:$("#grade").val(),
-                sClass:$("#sClass").val()
+                sclass:$("#sclass").val()
             }
         });
     })

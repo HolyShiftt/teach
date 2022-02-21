@@ -1,5 +1,8 @@
 package com.xwc.teach.exam.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.xwc.teach.commons.Pages;
 import com.xwc.teach.commons.Result;
 import com.xwc.teach.commons.Table;
 import com.xwc.teach.exam.entity.Exam;
@@ -19,9 +22,10 @@ public class ExamController {
 
     @RequestMapping("/examList")
     @ResponseBody
-    public Table examList(String subject, String search){
+    public Table examList(String subject, String search, Pages pages){
+        Page<?> page = PageHelper.startPage(pages.getPage(), pages.getLimit());
         List<Exam> list = examService.selectAll(subject,search);
-        return Table.success(list);
+        return Table.success(Long.valueOf(page.getTotal()),list);
     }
 
     @RequestMapping("/examAdd")

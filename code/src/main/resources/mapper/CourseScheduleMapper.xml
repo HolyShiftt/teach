@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xwc.teach.index.dao.CourseScheduleDao">
+    <insert id="courseAdd">
+        insert into course_schedule(grade,s_class,num,monday,tuesday,wednesday,thursday,friday,saturday,sunday)
+        values(#{grade},#{sclass},#{num},#{monday},#{tuesday},#{wednesday},#{thursday},#{friday},#{saturday},#{sunday})
+    </insert>
+    <update id="courseUpd">
+        update course_schedule
+        set grade = #{grade},
+        s_class = #{sclass},
+        num = #{num},
+        monday = #{monday},
+        tuesday = #{tuesday},
+        wednesday = #{wednesday},
+        thursday = #{thursday},
+        friday = #{friday},
+        saturday = #{saturday},
+        sunday = #{sunday}
+        where id = #{id}
+    </update>
+    <delete id="courseDel">
+        delete from course_schedule where id = #{id}
+    </delete>
     <select id="getList" resultType="com.xwc.teach.index.entity.CourseSchedule">
         select * from course_schedule s left join course_time t
         on s.num = t.num and s.grade = t.grade
-        where s.grade = #{grade} and s_class = #{sClass}
+        <where>
+            <if test="grade != null and grade !=''">
+                and s.grade = #{grade}
+            </if>
+            <if test="sclass != null and sclass !=''">
+                and s_class = #{sclass}
+            </if>
+        </where>
+    </select>
+    <select id="courseInfo" resultType="com.xwc.teach.index.entity.CourseSchedule">
+        select * from course_schedule where id = #{id}
+    </select>
+    <select id="isExist" resultType="java.lang.Integer">
+        select count(*) from course_schedule where grade = #{grade} and
+        s_class = #{sclass} and num = #{num}
     </select>
 </mapper>
