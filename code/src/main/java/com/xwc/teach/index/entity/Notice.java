@@ -6,6 +6,6 @@ import lombok.Data;
 public class Notice {
     private Integer id;
     private String title;
-    private String index;
+    private String content;
     private String createTime;
 }

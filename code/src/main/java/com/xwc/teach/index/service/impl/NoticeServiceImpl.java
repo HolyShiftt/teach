@@ -7,6 +7,8 @@ import com.xwc.teach.index.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -16,12 +18,15 @@ public class NoticeServiceImpl implements NoticeService {
     private NoticeDao noticeDao;
 
     @Override
-    public List<Notice> selectAll() {
-        return noticeDao.selectAll();
+    public List<Notice> selectAll(Integer limit) {
+        return noticeDao.selectAll(limit);
     }
 
     @Override
     public int noticeAdd(Notice notice) {
+        Date date = new Date();
+        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        notice.setCreateTime(dateFormat.format(date));
         return noticeDao.noticeAdd(notice);
     }
 

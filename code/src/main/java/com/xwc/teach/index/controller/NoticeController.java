@@ -21,8 +21,8 @@ public class NoticeController {
 
     @RequestMapping("/noticeList")
     @ResponseBody
-    public Table noticeList(){
-        List<Notice> list = noticeService.selectAll();
+    public Table noticeList(Integer limit){
+        List<Notice> list = noticeService.selectAll(limit);
         return Table.success(list);
     }
 

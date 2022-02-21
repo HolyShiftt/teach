@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xwc.teach.index.dao.NoticeDao" >
     <insert id="noticeAdd">
-        insert into notice(title,index)
-        values(#{title},#{index})
+        insert into notice(title,content,create_time)
+        values(#{title},#{content},#{createTime})
     </insert>
     <update id="noticeUpd">
         update notice
         set title = #{title},
-        index = #{index}
+        content = #{content}
         where id = #{id}
     </update>
     <delete id="noticeDel">
@@ -17,6 +17,11 @@
 
     <select id="selectAll" resultType="com.xwc.teach.index.entity.Notice">
       select * from notice
+        order by create_time asc
+      <if test="limit != null and limit !=''">
+          limit ${limit}
+      </if>
+
     </select>
     <select id="noticeInfo" resultType="com.xwc.teach.index.entity.Notice">
         select * from notice where id = #{id}

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface NoticeService {
 
-    List<Notice> selectAll();
+    List<Notice> selectAll(Integer limit);
 
     int noticeAdd(Notice notice);
 
