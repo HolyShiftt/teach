@@ -68,7 +68,7 @@ public class PageController {
 
     @RequestMapping("/examTeacher")
     public String examTeacher(){
-        return "exam/examTeacher";
+        return "examInfo";
     }
 
     @RequestMapping("/examOper")

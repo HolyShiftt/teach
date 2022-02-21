@@ -7,6 +7,8 @@
 <body>
 <form class="layui-form" lay-filter="questionForm" style="margin-top: 20px" id="questionForm" >
     <div style="padding-right:50px">
+        <input type="text" name="id" id="id" class="layui-input" style="display: none">
+        <input type="text" name="subject" id="subject" class="layui-input" style="display: none">
         <div class="layui-form-item">
             <label class="layui-form-label">题目<span style="color: red">*</span></label>
             <div class="layui-input-block">
@@ -41,23 +43,22 @@
         <div class="layui-form-item">
             <label class="layui-form-label">正确答案</label>
             <div class="layui-input-block" id="radio">
-                <input type="radio" name="answer" value="A" title="A">
-                <input type="radio" name="answer" value="B" title="B" checked>
+                <input type="radio" name="answer" value="A" title="A" checked>
+                <input type="radio" name="answer" value="B" title="B">
                 <input type="radio" name="answer" value="C" title="C">
                 <input type="radio" name="answer" value="D" title="D">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">解析<span style="color: red">*</span></label>
+            <label class="layui-form-label">解析</label>
             <div class="layui-input-block">
-                <textarea type="textarea" name="answer_info" autocomplete="off" lay-verify="required"
-                          class="layui-textarea"></textarea>
+                <textarea type="textarea" name="answerInfo" autocomplete="off" class="layui-textarea"></textarea>
             </div>
         </div>
     </div>
     <div class="layui-form-item" style="text-align: center">
         <div class="layui-input-block" style="margin-left: 0">
-            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="confirm">提交</button>
+            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="submit">提交</button>
             <button type="button" class="layui-btn layui-btn-primary" id="close">取消</button>
         </div>
     </div>

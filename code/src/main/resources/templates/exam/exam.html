@@ -44,15 +44,15 @@
     </div>
     <div class="layui-body" style="padding: 0;display: flex;background: #F2F4F7;">
         <ul class="layui-nav layui-nav-tree" lay-filter="test" style="height: 100%">
-            <li class="layui-nav-item"><a onclick="showSub('语文')">语文</a></li>
-            <li class="layui-nav-item"><a onclick="showSub('数学')">数学</a></li>
-            <li class="layui-nav-item"><a onclick="showSub('英语')">英语</a></li>
+            <li class="layui-nav-item"><a onclick="showSub('语文')" id="语文">语文</a></li>
+            <li class="layui-nav-item"><a onclick="showSub('数学')" id="数学">数学</a></li>
+            <li class="layui-nav-item"><a onclick="showSub('英语')" id="英语">英语</a></li>
         </ul>
         <div id="content">
             <form class="layui-form layui-form-pane">
                 <div class="layui-form-item">
                     <div style="float: left">
-                        <button type="button" class="layui-btn layui-btn-normal" id="addUser"><i class="layui-icon">&#xe654;</i>添加</button>
+                        <button type="button" class="layui-btn layui-btn-normal" id="addQ"><i class="layui-icon">&#xe654;</i>添加</button>
                     </div>
                     <div style="float: right">
                         <label class="layui-form-label">题目</label>
