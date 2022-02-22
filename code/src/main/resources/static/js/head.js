@@ -23,6 +23,7 @@ layui.use(['layer', 'element'], function () {
     }else if (sessionStorage.getItem("role") == 2) {
         $("#headBar").append("<li class='layui-nav-item layui-hide-xs' id='personal'><a href='personal'>个人信息</a></li>" +
             "<li class='layui-nav-item layui-hide-xs' id='question'><a href='question'>题库</a></li>"+
+            "<li class='layui-nav-item layui-hide-xs' id='examTeacher'><a href='examTeacher'>发布考试</a></li>"+
             "</li><li class='layui-nav-item layui-hide-xs' id='user'><a href='user'>用户管理</a></li>"+
             "</li><li class='layui-nav-item layui-hide-xs' id='chat'><a href='chat'>聊天室</a></li>");
     }

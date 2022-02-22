@@ -5,6 +5,8 @@ import com.github.pagehelper.PageHelper;
 import com.xwc.teach.commons.Pages;
 import com.xwc.teach.commons.Result;
 import com.xwc.teach.commons.Table;
+import com.xwc.teach.index.entity.Student;
+import com.xwc.teach.index.entity.Teacher;
 import com.xwc.teach.index.entity.User;
 import com.xwc.teach.index.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +30,17 @@ public class UserController {
     @ResponseBody
     public Result personalInfo(String username,Integer role){
         Result result = new Result();
-        User userByUsername = userService.getByUsername(username, role);
+        User user = userService.getByUsername(username, role);
+        if (role == 3){
+            Student stuClass = userService.getStuClass(user.getId());
+            user.setStuClass(stuClass.getStuClass());
+            user.setStuGrade(stuClass.getStuGrade());
+        }else if(role == 2){
+            Teacher teacherSubject = userService.getTeacherSubject(user.getId());
+            user.setTeacher(teacherSubject);
+        }
         result.setCode(1);
-        result.setMsg(userByUsername);
+        result.setMsg(user);
         return result;
     }
 

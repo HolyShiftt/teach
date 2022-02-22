@@ -47,4 +47,6 @@ public class User {
     private Integer stuGrade;
 
     private String teacherSubject;
+
+    private Teacher teacher;
 }

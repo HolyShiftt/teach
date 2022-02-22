@@ -7,6 +7,18 @@ layui.use(['layer'], function () {
     var username = sessionStorage.getItem("username");
     var role = sessionStorage.getItem("role");
 
+    if (role == 2){
+        $(".tbb").append(`<tr>
+                            <td>教师编号:</td>
+                            <td id="teacherId" colspan="3"></td>
+                            <td>受教育程度:</td>
+                            <td id="edu" colspan="3"></td></tr><tr>
+                            <td>薪资:</td>
+                            <td id="salary" colspan="3"></td>
+                            <td>任课科目:</td>
+                            <td id="subject" colspan="3"></td>
+                        </tr>`)
+    }
     // 初始化个人信息表格
     $.post("user/personalInfo",{"username":username, "role":role}, function (d) {
         var user = d.msg;
@@ -20,6 +32,10 @@ layui.use(['layer'], function () {
         $("#politics").text(user.politics)
         $("#mail").text(user.mail)
         $("#picture").attr("src",user.picture)
+        $("#teacherId").text(user.teacher.teacherId)
+        $("#edu").text(user.teacher.edu)
+        $("#salary").text(user.teacher.salary)
+        $("#subject").text(user.teacher.subject)
     })
 
     // 修改密码按钮
