@@ -41,4 +41,8 @@ public class User {
     private Integer role;
 
     private String roleName;
+
+    private Integer stuClass;
+
+    private Integer stuGrade;
 }

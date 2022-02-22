@@ -5,11 +5,11 @@ layui.use(['layer','form'], function () {
         form = layui.form,
         table = layui.table;
 
-    $("#exam").addClass("layui-this");
+    $("#question").addClass("layui-this");
     window.showSub = function(subject){
         sub= subject;
         $(".layui-card").empty()
-        $.get("/exam/questionList",{subject:subject}, function (d) {
+        $.get("/questionRadio/questionRadioList",{subject:subject}, function (d) {
             showList(d)
         })
     }
@@ -20,19 +20,18 @@ layui.use(['layer','form'], function () {
             layer.msg("请先选择科目");
         }else{
             $(".layui-card").empty()
-            $.get("/exam/questionList",{subject:sub,search:$("#title").val()}, function (d) {
+            $.get("/questionRadio/questionRadioList",{subject:sub,search:$("#title").val()}, function (d) {
                 showList(d)
             })
         }
-
     })
 
     function showList(d) {
         for (const question of d.data) {
-            if (question.answerInfo==null){
+            if (question.answerInfo==null || question.answerInfo==""){
                 question.answerInfo = "略"
             }
-            $("#question").append(`<div class="layui-card">
+            $("#questionContent").append(`<div class="layui-card">
                 <div class="layui-card-header" style="display:flow-root;"><div class="layui-col-md10">`+question.title+`</div>
                 <div style="text-align: right;"><a style="color: red;" onclick="getOne(`+question.id+`)">编辑</a><a style="color: red;margin-left: 30px" onclick="del(`+question.id+`)">删除</a></div></div>
                 <div class="layui-card-body">
@@ -56,7 +55,7 @@ layui.use(['layer','form'], function () {
             title : '修改',
             type : 2,
             area : [ '40%', '75%' ],
-            content : "/examOper",
+            content : "/questionOper",
             end:function () {
                 $("#"+sub).click()
             }
@@ -73,7 +72,7 @@ layui.use(['layer','form'], function () {
                 title: '添加',
                 type: 2,
                 area: [ '40%', '75%' ],
-                content: "/examOper",
+                content: "/questionOper",
                 end:function () {
                     $("#"+sub).click()
                 }
@@ -86,7 +85,7 @@ layui.use(['layer','form'], function () {
             $.ajax({
                 type: "POST",
                 data: {id: id},
-                url: "/exam/questionDel",
+                url: "/questionRadio/questionRadioDel",
                 success: function (d) {
                     if (d.code) {
                         layer.msg(d.msg, {time: 1000}, function () {

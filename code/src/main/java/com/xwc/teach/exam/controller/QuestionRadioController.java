@@ -2,8 +2,8 @@ package com.xwc.teach.exam.controller;
 
 import com.xwc.teach.commons.Result;
 import com.xwc.teach.commons.Table;
-import com.xwc.teach.exam.entity.Question;
-import com.xwc.teach.exam.service.QuestionService;
+import com.xwc.teach.exam.entity.QuestionRadio;
+import com.xwc.teach.exam.service.QuestionRadioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,23 +12,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/exam")
-public class QuestionController {
+@RequestMapping("/questionRadio")
+public class QuestionRadioController {
     @Autowired
-    private QuestionService questionService;
+    private QuestionRadioService questionRadioService;
 
-    @RequestMapping("/questionList")
+    @RequestMapping("/questionRadioList")
     @ResponseBody
-    public Table questionList(String subject,String search){
-        List<Question> list = questionService.selectAll(subject,search);
+    public Table questionRadioList(String subject,String search){
+        List<QuestionRadio> list = questionRadioService.selectRadioAll(subject,search);
         return Table.success(list);
     }
 
-    @RequestMapping("/questionAdd")
+    @RequestMapping("/questionRadioAdd")
     @ResponseBody
-    public Result questionAdd(Question question){
+    public Result questionRadioAdd(QuestionRadio questionRadio){
         Result result = new Result();
-        int code = questionService.questionAdd(question);
+        int code = questionRadioService.questionRadioAdd(questionRadio);
         result.setCode(code);
         if (code == 1){
             result.setMsg("添加成功");
@@ -38,11 +38,11 @@ public class QuestionController {
         return result;
     }
 
-    @RequestMapping("/questionDel")
+    @RequestMapping("/questionRadioDel")
     @ResponseBody
-    public Result questionDel(Integer id){
+    public Result questionRadioDel(Integer id){
         Result result = new Result();
-        int code = questionService.questionDel(id);
+        int code = questionRadioService.questionRadioDel(id);
         result.setCode(code);
         if (code == 1){
             result.setMsg("删除成功");
@@ -52,17 +52,17 @@ public class QuestionController {
         return result;
     }
 
-    @RequestMapping("/questionInfo")
+    @RequestMapping("/questionRadioInfo")
     @ResponseBody
-    public Question questionInfo(Integer id){
-        return questionService.questionInfo(id);
+    public QuestionRadio questionRadioInfo(Integer id){
+        return questionRadioService.questionRadioInfo(id);
     }
 
-    @RequestMapping("/questionUpd")
+    @RequestMapping("/questionRadioUpd")
     @ResponseBody
-    public Result questionUpd(Question question){
+    public Result questionRadioUpd(QuestionRadio questionRadio){
         Result result = new Result();
-        int code = questionService.questionUpd(question);
+        int code = questionRadioService.questionRadioUpd(questionRadio);
         result.setCode(code);
         if (code == 1){
             result.setMsg("修改成功");

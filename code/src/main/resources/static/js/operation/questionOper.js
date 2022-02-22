@@ -3,7 +3,7 @@ layui.use(['layer', 'form', 'laydate','element'], function () {
         , layer = layui.layer
         , form = layui.form
 
-    $.ajax("/exam/questionInfo",{
+    $.ajax("/questionRadio/questionRadioInfo",{
         async : false,
         data : {
             id : parent.operId
@@ -21,10 +21,10 @@ layui.use(['layer', 'form', 'laydate','element'], function () {
         var url;
         if (parent.operId===0){
             $("#id").val('')
-            url = '/exam/questionAdd'
+            url = '/questionRadio/questionRadioAdd'
         }else{
             $("#id").val(parent.operId)
-            url = '/exam/questionUpd'
+            url = '/questionRadio/questionRadioUpd'
         }
         $.ajax({
             url: url,

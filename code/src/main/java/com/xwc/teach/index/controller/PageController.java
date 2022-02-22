@@ -71,9 +71,9 @@ public class PageController {
         return "operation/noticeOper";
     }
 
-    @RequestMapping("/exam")
-    public String exam(){
-        return "exam/exam";
+    @RequestMapping("/question")
+    public String question(){
+        return "exam/question";
     }
 
     @RequestMapping("/examTeacher")
@@ -81,8 +81,8 @@ public class PageController {
         return "exam/examTeacher";
     }
 
-    @RequestMapping("/examOper")
-    public String examOper(){
-        return "operation/examOper";
+    @RequestMapping("/questionOper")
+    public String questionOper(){
+        return "operation/questionOper";
     }
 }

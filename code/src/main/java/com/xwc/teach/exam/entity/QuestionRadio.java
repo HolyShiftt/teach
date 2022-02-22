@@ -3,7 +3,7 @@ package com.xwc.teach.exam.entity;
 import lombok.Data;
 
 @Data
-public class Question {
+public class QuestionRadio {
     private Integer id;
     private String subject;
     private String title;

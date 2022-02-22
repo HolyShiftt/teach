@@ -1,6 +1,7 @@
 package com.xwc.teach.index.controller;
 
 import com.xwc.teach.commons.Result;
+import com.xwc.teach.index.entity.Student;
 import com.xwc.teach.index.entity.User;
 import com.xwc.teach.index.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,11 @@ public class LoginController {
             result.setCode(0);
             result.setMsg("用户名不存在");
         } else if (password.equals(user.getPassword())){
+            if (role == 3){
+                Student stuClass = userService.getStuClass(user.getId());
+                user.setStuClass(stuClass.getStuClass());
+                user.setStuGrade(stuClass.getStuGrade());
+            }
             session.setAttribute("user",user);
             result.setCode(1);
             result.setMsg(user);
@@ -34,7 +40,6 @@ public class LoginController {
             result.setCode(0);
             result.setMsg("密码错误");
         }
-
         return result;
     }
 

@@ -31,14 +31,54 @@
         </ul>
     </div>
     <div class="layui-body">
-        <div style="margin:auto;width: 80%;text-align: center">
-            <!--            <button onclick="conectWebSocket()">连接WebSocket</button>-->
-            <!--            <button onclick="closeWebSocket()">断开连接</button>-->
-            <!--            <hr />-->
-            <!--            <br />-->
-            消息：<input id="text" type="text" />
-            <button onclick="send()">发送消息</button>
-            <div id="message"></div>
+        <div style="margin:auto;width: 40%;text-align: center">
+            <form class="layui-form" lay-filter="userForm" id="userForm" style="margin-top: 20px">
+                <div style="padding-right:50px">
+                    <input type="text" name="id" id="id" class="layui-input" style="display: none">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">考试名称<span style="color: red">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" autocomplete="off" class="layui-input" lay-verify="required">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">开始时间<span style="color: red">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="startTime" autocomplete="off" class="layui-input" lay-verify="required">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">结束时间<span style="color: red">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="endTime" autocomplete="off" class="layui-input" lay-verify="required">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">科目<span style="color: red">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="object" autocomplete="off" class="layui-input" lay-verify="required">
+                        </div>
+                    </div>
+                    <div class="layuie-form-item">
+                        <label class="layui-form-label">科目<span style="color: red">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="object" autocomplete="off" class="layui-input" lay-verify="required">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">科目<span style="color: red">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="object" autocomplete="off" class="layui-input" lay-verify="required">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item" style="text-align: center">
+                    <div class="layui-input-block" style="margin-left: 0">
+                        <button class="layui-btn" lay-submit lay-filter="submit">确定</button>
+                        <button type="button" class="layui-btn layui-btn-primary" id="close">关闭</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -47,5 +87,5 @@
 </body>
 <script src="/js/layui/layui.js"></script>
 <script src="/js/head.js"></script>
-<script src="/js/chat.js"></script>
+<script src="/js/exam/examTeacher.js"></script>
 </html>

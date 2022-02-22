@@ -16,8 +16,8 @@ layui.use(['layer', 'element'], function () {
             "<li class='layui-nav-item layui-hide-xs' id='courseManage'><a href='course'>课程表管理</a></li>" +
             "<li class='layui-nav-item layui-hide-xs' id='notice'><a href='notice'>公告通知</a></li>" +
             "<li class='layui-nav-item layui-hide-xs' id='chat'><a href='chat'>聊天室</a></li>"+
-            "<li class='layui-nav-item layui-hide-xs' id='exam'><a href='exam'>题库</a></li>"+
-            "<li class='layui-nav-item layui-hide-xs' id='examTeach'><a href='examTeacher'>发布考试</a></li>"+
+            "<li class='layui-nav-item layui-hide-xs' id='question'><a href='question'>题库</a></li>"+
+            "<li class='layui-nav-item layui-hide-xs' id='examTeacher'><a href='examTeacher'>发布考试</a></li>"+
             "<li class='layui-nav-item layui-hide-xs' id='examStu'><a href='examStu'>我的考试</a></li>"+
             "</li><li class='layui-nav-item layui-hide-xs' id='user'><a href='user'>用户管理</a></li>");
     }else if (sessionStorage.getItem("role") == 2) {

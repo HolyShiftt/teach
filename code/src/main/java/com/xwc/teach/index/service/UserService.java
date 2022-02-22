@@ -1,5 +1,6 @@
 package com.xwc.teach.index.service;
 
+import com.xwc.teach.index.entity.Student;
 import com.xwc.teach.index.entity.User;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,5 +25,7 @@ public interface UserService {
     int userUpd(User user);
 
     int updPersonal(User user);
+
+    Student getStuClass(Integer id);
 
 }
