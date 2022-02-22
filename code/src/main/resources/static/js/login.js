@@ -12,8 +12,13 @@ layui.use(['layer', 'element'], function () {
                 sessionStorage.setItem("username", data.msg.username);
                 sessionStorage.setItem("id", data.msg.id);
                 sessionStorage.setItem("role",data.msg.role)
-                sessionStorage.setItem("grade",data.msg.stuGrade)
-                sessionStorage.setItem("class",data.msg.stuClass)
+                if (data.msg.role == 3){
+                    sessionStorage.setItem("grade",data.msg.stuGrade)
+                    sessionStorage.setItem("class",data.msg.stuClass)
+                }else if (data.msg.role == 2){
+                    sessionStorage.setItem("subject",data.msg.teacherSubject)
+                }
+
                 layer.msg("登录成功，当前登录用户：" + data.msg.realName, {
                     time: 2000
                 }, function () {

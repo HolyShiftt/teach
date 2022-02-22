@@ -80,4 +80,7 @@
   <select id="getStuClass" resultType="com.xwc.teach.index.entity.Student">
     select * from student where user_id = #{id}
   </select>
+    <select id="getTeacherSubject" resultType="com.xwc.teach.index.entity.Teacher">
+      select * from teacher where user_id = #{id}
+    </select>
 </mapper>

@@ -81,8 +81,18 @@ public class PageController {
         return "exam/examTeacher";
     }
 
-    @RequestMapping("/questionOper")
-    public String questionOper(){
-        return "operation/questionOper";
+    @RequestMapping("/questionradioOper")
+    public String questionRadioOper(){
+        return "operation/questionRadioOper";
+    }
+
+    @RequestMapping("/questiontellOper")
+    public String questionTellOper(){
+        return "operation/questionTellOper";
+    }
+
+    @RequestMapping("/questiontextOper")
+    public String questionTextOper(){
+        return "operation/questionTextOper";
     }
 }

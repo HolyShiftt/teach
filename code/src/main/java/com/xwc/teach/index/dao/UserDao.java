@@ -1,6 +1,7 @@
 package com.xwc.teach.index.dao;
 
 import com.xwc.teach.index.entity.Student;
+import com.xwc.teach.index.entity.Teacher;
 import com.xwc.teach.index.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -28,5 +29,7 @@ public interface UserDao {
     int updPersonal(User user);
 
     Student getStuClass(Integer id);
+
+    Teacher getTeacherSubject(Integer id);
 
 }

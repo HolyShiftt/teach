@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xwc.teach.exam.dao.QuestionTellDao" >
+    <insert id="questionTellAdd">
+        insert into question_tell(subject,title,answer,answer_info)
+        values(#{subject},#{title},#{answer},#{answerInfo})
+    </insert>
+    <update id="questionTellUpd">
+        update question_tell
+        set
+        title = #{title},
+        answer = #{answer},
+        answer_info = #{answerInfo}
+        where id = #{id}
+    </update>
+    <delete id="questionTellDel">
+        delete from question_tell where id = #{id}
+    </delete>
+
+    <select id="selectTellAll" resultType="com.xwc.teach.exam.entity.QuestionTell">
+      select * from question_tell where subject = #{subject}
+        <if test="search != null and search !=''">
+            and title like concat('%',#{search},'%')
+        </if>
+    </select>
+    <select id="questionTellInfo" resultType="com.xwc.teach.exam.entity.QuestionTell">
+        select * from question_tell where id = #{id}
+    </select>
+
+
+</mapper>

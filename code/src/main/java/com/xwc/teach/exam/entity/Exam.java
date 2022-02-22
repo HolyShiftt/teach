@@ -13,7 +13,7 @@ public class Exam {
 
     private String end_time;
 
-    private String object;
+    private String subject;
 
     private Integer grade;
 

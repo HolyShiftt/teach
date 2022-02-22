@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+</head>
+<body>
+<form class="layui-form" lay-filter="questionForm" style="margin-top: 20px" id="questionForm" >
+    <div style="padding-right:50px">
+        <input type="text" name="id" id="id" class="layui-input" style="display: none">
+        <input type="text" name="subject" id="subject" class="layui-input" style="display: none">
+        <div class="layui-form-item">
+            <label class="layui-form-label">题目<span style="color: red">*</span></label>
+            <div class="layui-input-block">
+                <textarea type="textarea" name="title" autocomplete="off" lay-verify="required"
+                          class="layui-textarea"></textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">正确答案<span style="color: red">*</span></label>
+            <div class="layui-input-block" id="tell">
+                <input type="radio" name="answer" value="1" title="对" checked>
+                <input type="radio" name="answer" value="0" title="错">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">解析</label>
+            <div class="layui-input-block">
+                <textarea type="textarea" name="answerInfo" autocomplete="off" class="layui-textarea"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item" style="text-align: center">
+        <div class="layui-input-block" style="margin-left: 0">
+            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="submit">提交</button>
+            <button type="button" class="layui-btn layui-btn-primary" id="close">取消</button>
+        </div>
+    </div>
+
+</form>
+</body>
+<script src="/js/layui/layui.js"></script>
+<script src="/js/operation/questionTellOper.js"></script>
+</html>

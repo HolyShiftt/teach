@@ -2,6 +2,7 @@ package com.xwc.teach.index.controller;
 
 import com.xwc.teach.commons.Result;
 import com.xwc.teach.index.entity.Student;
+import com.xwc.teach.index.entity.Teacher;
 import com.xwc.teach.index.entity.User;
 import com.xwc.teach.index.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,9 @@ public class LoginController {
                 Student stuClass = userService.getStuClass(user.getId());
                 user.setStuClass(stuClass.getStuClass());
                 user.setStuGrade(stuClass.getStuGrade());
+            }else if(role == 2){
+                Teacher teacherSubject = userService.getTeacherSubject(user.getId());
+                user.setTeacherSubject(teacherSubject.getSubject());
             }
             session.setAttribute("user",user);
             result.setCode(1);

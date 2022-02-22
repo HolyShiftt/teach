@@ -43,10 +43,11 @@
         </ul>
     </div>
     <div class="layui-body" style="padding: 0;display: flex;background: #F2F4F7;">
-        <ul class="layui-nav layui-nav-tree" lay-filter="test" style="height: 100%">
-            <li class="layui-nav-item" style="margin-top: 10px"><a onclick="showSub('语文')" id="语文">语文</a></li>
-            <li class="layui-nav-item"><a onclick="showSub('数学')" id="数学">数学</a></li>
-            <li class="layui-nav-item"><a onclick="showSub('英语')" id="英语">英语</a></li>
+        <ul class="layui-nav layui-nav-tree" lay-filter="test" style="height: 100%" id="subjectList">
+            <li class="layui-nav-item" style="margin-top: 10px"><h1 id="subjectH1" style="cursor: default"></h1></li>
+            <li class="layui-nav-item" style="margin-top: 10px"><a onclick="showType('radio')" id='radioType'>单选题</a></li>
+            <li class="layui-nav-item" style="margin-top: 10px"><a onclick="showType('tell')" id='tellType'>判断题</a></li>
+            <li class="layui-nav-item" style="margin-top: 10px"><a onclick="showType('text')" id='textType'>填空题</a></li>
         </ul>
         <div id="content">
             <form class="layui-form layui-form-pane">

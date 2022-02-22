@@ -2,6 +2,7 @@ package com.xwc.teach.index.service.impl;
 
 import com.xwc.teach.index.dao.UserDao;
 import com.xwc.teach.index.entity.Student;
+import com.xwc.teach.index.entity.Teacher;
 import com.xwc.teach.index.entity.User;
 import com.xwc.teach.index.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,5 +67,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public Student getStuClass(Integer id) {
         return userDao.getStuClass(id);
+    }
+
+    @Override
+    public Teacher getTeacherSubject(Integer id) {
+        return userDao.getTeacherSubject(id);
     }
 }
