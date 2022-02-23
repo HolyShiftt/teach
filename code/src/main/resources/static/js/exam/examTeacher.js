@@ -221,15 +221,32 @@ layui.use(['layer','form'], function () {
 
     $("#preBtn").click(function () {
         $.get("/question/questionIds",{ids:JSON.stringify(radioList),subject:subject,type:'radio'}, function (d) {
-            showList(d)
+            for (const question of d.data) {
+                if (question.answerInfo == null || question.answerInfo == "") {
+                    question.answerInfo = "略"
+                }
+                $("#questionContent").append(`<div class="layui-card">
+                <div class="layui-card-header" style="display:flow-root;"><div class="layui-col-md10">`+question.title+`</div>
+                <div style="text-align: right;"><a style="color: red;" onclick="getOne(`+question.id+`)">编辑</a><a style="color: red;margin-left: 30px" onclick="del(`+question.id+`)">删除</a></div></div>
+                <div class="layui-card-body">
+                    A:`+question.answer1+`<br>
+                    B:`+question.answer2+`<br>
+                    C:`+question.answer3+`<br>
+                    D:`+question.answer4+`
+                </div>
+                <div class="layui-card-header" style="height: 0"></div>
+                <div class="layui-card-body">
+                    正确答案:`+question.answer+`<br>
+                    解析:`+question.answerInfo+`
+                </div>
+            </div>`)
+            }
+
         })
         layer.open({
             type: 1
             , content: $("#preDiv")
             , area: ['850px', '780px']
-            , btn: ['关闭']
-            , yes: function () {
-            }
         })
         return false
     })
