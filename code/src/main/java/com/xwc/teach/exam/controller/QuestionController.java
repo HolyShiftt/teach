@@ -13,6 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -43,6 +46,28 @@ public class QuestionController {
                 List<QuestionText> list = questionTextService.selectTextAll(subject, search);
                 return Table.success(list);
             }
+            default:
+                return Table.success(0);
+        }
+    }
+    @RequestMapping("/questionIds")
+    @ResponseBody
+    public Table questionIds(String[] ids,String subject,String type){
+        ArrayList<String> idList = new ArrayList<>();
+        Collections.addAll(idList, ids);
+        switch (type) {
+            case "radio": {
+                List<QuestionRadio> list = questionRadioService.selectRadioIds(idList,subject);
+                return Table.success(list);
+            }
+//            case "tell": {
+//                List<QuestionTell> list = questionTellService.selectTellIds(ids, subject);
+//                return Table.success(list);
+//            }
+//            case "text": {
+//                List<QuestionText> list = questionTextService.selectTextIds(ids, subject);
+//                return Table.success(list);
+//            }
             default:
                 return Table.success(0);
         }

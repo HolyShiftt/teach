@@ -19,6 +19,12 @@ public class QuestionRadioServiceImpl implements QuestionRadioService {
     }
 
     @Override
+    public List<QuestionRadio> selectRadioIds(List ids, String subject) {
+        String s = ids.toString().replace("[[","(").replace("]]",")");
+        return questionRadioDao.selectRadioIds(s,subject);
+    }
+
+    @Override
     public int questionRadioAdd(QuestionRadio questionRadio) {
         return questionRadioDao.questionRadioAdd(questionRadio);
     }

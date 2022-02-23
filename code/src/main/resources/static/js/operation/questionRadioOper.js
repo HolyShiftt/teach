@@ -17,7 +17,7 @@ layui.use(['layer', 'form', 'laydate','element'], function () {
 
     form.on('submit(submit)', function (data) {
         layer.load();
-        $("#subject").val(parent.sub)
+        $("#subject").val(parent.thisSubject)
         var url;
         if (parent.operId===0){
             $("#id").val('')

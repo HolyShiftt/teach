@@ -8,6 +8,8 @@ public interface QuestionRadioService {
 
     List<QuestionRadio> selectRadioAll(String subject, String search);
 
+    List<QuestionRadio> selectRadioIds(List ids, String subject);
+
     int questionRadioAdd(QuestionRadio questionRadio);
 
     int questionRadioDel(Integer id);

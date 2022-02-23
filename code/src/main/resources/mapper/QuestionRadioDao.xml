@@ -30,6 +30,9 @@
     <select id="questionRadioInfo" resultType="com.xwc.teach.exam.entity.QuestionRadio">
         select * from question_radio where id = #{id}
     </select>
+    <select id="selectRadioIds" resultType="com.xwc.teach.exam.entity.QuestionRadio">
+        select * from question_radio where subject = #{subject} and id in ${ids}
+    </select>
 
 
 </mapper>

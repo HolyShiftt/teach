@@ -9,6 +9,8 @@ import java.util.List;
 public interface QuestionRadioDao {
     List<QuestionRadio> selectRadioAll(String subject, String search);
 
+    List<QuestionRadio> selectRadioIds(String s, String subject);
+
     int questionRadioAdd(QuestionRadio questionRadio);
 
     int questionRadioDel(Integer id);
