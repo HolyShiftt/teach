@@ -33,8 +33,7 @@ public class UserController {
         User user = userService.getByUsername(username, role);
         if (role == 3){
             Student stuClass = userService.getStuClass(user.getId());
-            user.setStuClass(stuClass.getStuClass());
-            user.setStuGrade(stuClass.getStuGrade());
+            user.setStudent(stuClass);
         }else if(role == 2){
             Teacher teacherSubject = userService.getTeacherSubject(user.getId());
             user.setTeacher(teacherSubject);

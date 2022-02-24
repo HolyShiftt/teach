@@ -26,6 +26,11 @@ layui.use(['layer', 'element'], function () {
             "<li class='layui-nav-item layui-hide-xs' id='examTeacher'><a href='examTeacher'>发布考试</a></li>"+
             "<li class='layui-nav-item layui-hide-xs' id='myExamTeacher'><a href='myExamTeacher'>我的考试</a></li>"+
             "</li><li class='layui-nav-item layui-hide-xs' id='chat'><a href='chat'>聊天室</a></li>");
+    }else if (sessionStorage.getItem("role") == 3) {
+        $("#headBar").append("<li class='layui-nav-item layui-hide-xs' id='personal'><a href='personal'>个人信息</a></li>" +
+            "<li class='layui-nav-item layui-hide-xs' id='examStu'><a href='examStu'>查看考试</a></li>"+
+            "<li class='layui-nav-item layui-hide-xs' id='myExamStu'><a href='myExamStu'>我的考试</a></li>"+
+            "</li><li class='layui-nav-item layui-hide-xs' id='chat'><a href='chat'>聊天室</a></li>");
     }
 
 

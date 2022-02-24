@@ -42,11 +42,9 @@ public class User {
 
     private String roleName;
 
-    private Integer stuClass;
-
-    private Integer stuGrade;
-
     private String teacherSubject;
 
     private Teacher teacher;
+
+    private Student student;
 }

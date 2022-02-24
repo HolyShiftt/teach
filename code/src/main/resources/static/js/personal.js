@@ -18,6 +18,15 @@ layui.use(['layer'], function () {
                             <td>任课科目:</td>
                             <td id="subject" colspan="3"></td>
                         </tr>`)
+    }else if (role == 3){
+        $(".tbb").append(`<tr>
+                            <td>年级:</td>
+                            <td id="stuGrade"></td>
+                            <td>班级:</td>
+                            <td id="stuClass" ></td>
+                            <td>学号:</td>
+                            <td id="stuId" colspan="2"></td>
+                        </tr>`)
     }
     // 初始化个人信息表格
     $.post("user/personalInfo",{"username":username, "role":role}, function (d) {
@@ -32,10 +41,16 @@ layui.use(['layer'], function () {
         $("#politics").text(user.politics)
         $("#mail").text(user.mail)
         $("#picture").attr("src",user.picture)
-        $("#teacherId").text(user.teacher.teacherId)
-        $("#edu").text(user.teacher.edu)
-        $("#salary").text(user.teacher.salary)
-        $("#subject").text(user.teacher.subject)
+        if (role == 2){
+            $("#teacherId").text(user.teacher.teacherId)
+            $("#edu").text(user.teacher.edu)
+            $("#salary").text(user.teacher.salary)
+            $("#subject").text(user.teacher.subject)
+        }else if (role == 3){
+            $("#stuGrade").text(user.student.stuGrade)
+            $("#stuClass").text(user.student.stuClass)
+            $("#stuId").text(user.student.stuId)
+        }
     })
 
     // 修改密码按钮

@@ -31,8 +31,7 @@ public class LoginController {
         } else if (password.equals(user.getPassword())){
             if (role == 3){
                 Student stuClass = userService.getStuClass(user.getId());
-                user.setStuClass(stuClass.getStuClass());
-                user.setStuGrade(stuClass.getStuGrade());
+                user.setStudent(stuClass);
             }else if(role == 2){
                 Teacher teacherSubject = userService.getTeacherSubject(user.getId());
                 user.setTeacherSubject(teacherSubject.getSubject());
