@@ -100,4 +100,9 @@ public class PageController {
     public String myExamTeacher(){
         return "exam/myExamTeacher";
     }
+
+    @RequestMapping("/examStudent")
+    public String examStudent(){
+        return "exam/examStudent";
+    }
 }

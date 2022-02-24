@@ -29,10 +29,9 @@ public class ExamController {
     }
     @RequestMapping("/examListStu")
     @ResponseBody
-    public Table examListStu(Integer grade, Integer sclass, Pages pages){
-        Page<?> page = PageHelper.startPage(pages.getPage(), pages.getLimit());
+    public Table examListStu(Integer grade, Integer sclass){
         List<Exam> list = examService.examListStu(grade,sclass);
-        return Table.success(Long.valueOf(page.getTotal()),list);
+        return Table.success(list);
     }
 
     @RequestMapping("/examAdd")
