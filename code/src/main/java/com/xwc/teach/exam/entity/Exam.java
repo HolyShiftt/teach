@@ -9,13 +9,23 @@ public class Exam {
 
     private String name;
 
-    private String start_time;
+    private String startTime;
 
-    private String end_time;
+    private String endTime;
 
     private String subject;
 
     private Integer grade;
 
-    private Integer exam_class;
+    private Integer sclass;
+
+    private Integer teacherId;
+
+    private String radioList;
+
+    private String tellList;
+
+    private String textList;
+
+    private Integer sum;
 }

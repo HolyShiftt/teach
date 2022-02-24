@@ -28,6 +28,9 @@
     <select id="questionTextInfo" resultType="com.xwc.teach.exam.entity.QuestionText">
         select * from question_text where id = #{id}
     </select>
+    <select id="selectTextIds" resultType="com.xwc.teach.exam.entity.QuestionText">
+        select * from question_text where subject = #{subject} and id in ${s}
+    </select>
 
 
 </mapper>

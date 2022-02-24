@@ -19,6 +19,12 @@ public class QuestionTextServiceImpl implements QuestionTextService {
     }
 
     @Override
+    public List<QuestionText> selectTextIds(List ids, String subject) {
+        String s = ids.toString().replace("[[","(").replace("]]",")");
+        return questionTextDao.selectTextIds(s,subject);
+    }
+
+    @Override
     public int questionTextAdd(QuestionText questionText) {
         return questionTextDao.questionTextAdd(questionText);
     }

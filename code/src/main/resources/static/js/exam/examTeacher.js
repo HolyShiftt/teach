@@ -8,6 +8,7 @@ layui.use(['layer','form'], function () {
 
     var radioList=[],tellList=[],textList=[]
     var subject = sessionStorage.getItem("subject");
+    var teacherId = sessionStorage.getItem("id");
     $("#examTeacher").addClass("layui-this");
 
     $("#subject").val(subject)
@@ -221,32 +222,46 @@ layui.use(['layer','form'], function () {
 
     $("#preBtn").click(function () {
         $.get("/question/questionIds",{ids:JSON.stringify(radioList),subject:subject,type:'radio'}, function (d) {
+            $("#questionContent").append(`<h1>选择题</h1>`)
             for (const question of d.data) {
-                if (question.answerInfo == null || question.answerInfo == "") {
-                    question.answerInfo = "略"
-                }
                 $("#questionContent").append(`<div class="layui-card">
-                <div class="layui-card-header" style="display:flow-root;"><div class="layui-col-md10">`+question.title+`</div>
-                <div style="text-align: right;"><a style="color: red;" onclick="getOne(`+question.id+`)">编辑</a><a style="color: red;margin-left: 30px" onclick="del(`+question.id+`)">删除</a></div></div>
+                <div class="layui-card-header" style="display:flow-root;"><div class="layui-col-md10">`+question.title+`</div></div>
                 <div class="layui-card-body">
                     A:`+question.answer1+`<br>
                     B:`+question.answer2+`<br>
                     C:`+question.answer3+`<br>
                     D:`+question.answer4+`
                 </div>
-                <div class="layui-card-header" style="height: 0"></div>
-                <div class="layui-card-body">
-                    正确答案:`+question.answer+`<br>
-                    解析:`+question.answerInfo+`
-                </div>
             </div>`)
             }
-
+            $.get("/question/questionIds",{ids:JSON.stringify(tellList),subject:subject,type:'tell'}, function (d) {
+                $("#questionContent").append(`<h1>判断题</h1>`)
+                for (const question of d.data) {
+                    $("#questionContent").append(`<div class="layui-card">
+                <div class="layui-card-header" style="display:flow-root;"><div class="layui-col-md10">`+question.title+`</div>                
+            </div>`)
+                }
+                $.get("/question/questionIds",{ids:JSON.stringify(textList),subject:subject,type:'text'}, function (d) {
+                    $("#questionContent").append(`<h1>填空题</h1>`)
+                    for (const question of d.data) {
+                        $("#questionContent").append(`<div class="layui-card">
+                <div class="layui-card-header" style="display:flow-root;"><div class="layui-col-md10">`+question.title+`</div>
+            </div>`)
+                    }
+                })
+            })
         })
+
         layer.open({
             type: 1
             , content: $("#preDiv")
             , area: ['850px', '780px']
+            ,end:function () {
+                $("#questionContent").empty()
+            }
+            ,cancel:function () {
+                $("#questionContent").empty()
+            }
         })
         return false
     })
@@ -272,14 +287,29 @@ layui.use(['layer','form'], function () {
             layer.alert("开始时间不能早于结束时间")
         } else{
             // 判断题目数量
-            if ($("#radioNum").val()!=radioList && $("#tellNum").val()!=tellList && $("#textNum").val()!=textList ){
+            if ($("#radioNum").val()!=radioList.length && $("#tellNum").val()!=tellList.length && $("#textNum").val()!=textList.length ){
                 layer.alert("题目数量出错")
             }else{
-
+                $.ajax("/exam/examAdd", {
+                    data: {
+                        "name": $("#name").val()
+                        , "startTime": $("#startTime").val()
+                        , "endTime": $("#endTime").val()
+                        , "subject": subject
+                        , "grade": $("#grade").val()
+                        , "sclass": $("#sclass").val()
+                        , "teacherId": teacherId
+                        , "radioList": radioList
+                        , "tellList": tellList
+                        , "textList": textList
+                        , "sum": $("#sum")
+                    },
+                    success : function(d) {
+                        return false;
+                    }
+                })
             }
         }
-
-
-
+        return false;
     })
 })

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/examInfo")
+@RequestMapping("/exam")
 public class ExamController {
     @Autowired
     private ExamService examService;

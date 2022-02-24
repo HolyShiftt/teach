@@ -1,6 +1,7 @@
 package com.xwc.teach.exam.service.impl;
 
 import com.xwc.teach.exam.dao.QuestionTellDao;
+import com.xwc.teach.exam.entity.QuestionRadio;
 import com.xwc.teach.exam.entity.QuestionTell;
 import com.xwc.teach.exam.service.QuestionTellService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,12 @@ public class QuestionTellServiceImpl implements QuestionTellService {
     @Override
     public List<QuestionTell> selectTellAll(String subject, String search) {
         return questionTellDao.selectTellAll(subject,search);
+    }
+
+    @Override
+    public List<QuestionTell> selectTellIds(List ids, String subject) {
+        String s = ids.toString().replace("[[","(").replace("]]",")");
+        return questionTellDao.selectTellIds(s,subject);
     }
 
     @Override

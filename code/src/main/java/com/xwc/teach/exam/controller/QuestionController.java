@@ -60,14 +60,14 @@ public class QuestionController {
                 List<QuestionRadio> list = questionRadioService.selectRadioIds(idList,subject);
                 return Table.success(list);
             }
-//            case "tell": {
-//                List<QuestionTell> list = questionTellService.selectTellIds(ids, subject);
-//                return Table.success(list);
-//            }
-//            case "text": {
-//                List<QuestionText> list = questionTextService.selectTextIds(ids, subject);
-//                return Table.success(list);
-//            }
+            case "tell": {
+                List<QuestionTell> list = questionTellService.selectTellIds(idList, subject);
+                return Table.success(list);
+            }
+            case "text": {
+                List<QuestionText> list = questionTextService.selectTextIds(idList, subject);
+                return Table.success(list);
+            }
             default:
                 return Table.success(0);
         }
