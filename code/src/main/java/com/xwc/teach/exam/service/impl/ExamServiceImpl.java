@@ -14,8 +14,8 @@ public class ExamServiceImpl implements ExamService {
     private ExamDao examDao;
 
     @Override
-    public List<Exam> selectAll(String subject,String search) {
-        return examDao.selectAll(subject,search);
+    public List<Exam> selectAll(Integer teacherId,String search) {
+        return examDao.selectAll(teacherId,search);
     }
 
     @Override

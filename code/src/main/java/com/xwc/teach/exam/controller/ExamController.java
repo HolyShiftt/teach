@@ -22,9 +22,9 @@ public class ExamController {
 
     @RequestMapping("/examList")
     @ResponseBody
-    public Table examList(String subject, String search, Pages pages){
+    public Table examList(Integer teacherId, String search, Pages pages){
         Page<?> page = PageHelper.startPage(pages.getPage(), pages.getLimit());
-        List<Exam> list = examService.selectAll(subject,search);
+        List<Exam> list = examService.selectAll(teacherId,search);
         return Table.success(Long.valueOf(page.getTotal()),list);
     }
 

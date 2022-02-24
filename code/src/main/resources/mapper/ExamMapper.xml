@@ -6,20 +6,20 @@
         values(#{name},#{startTime},#{endTime},#{subject},#{grade},#{sclass},#{teacherId},#{radioList},#{tellList},#{textList},#{sum})
     </insert>
     <update id="examUpd">
-        update exam
+        update exam_info
         set title = #{title},
         index = #{index}
         where id = #{id}
     </update>
     <delete id="examDel">
-        delete from exam where id = #{id}
+        delete from exam_info where id = #{id}
     </delete>
 
     <select id="selectAll" resultType="com.xwc.teach.exam.entity.Exam">
-      select * from exam
+      select * from exam_info where teacher_id = #{teacherId}
     </select>
     <select id="examInfo" resultType="com.xwc.teach.exam.entity.Exam">
-        select * from exam where id = #{id}
+        select * from exam_info where id = #{id}
     </select>
 
 

@@ -95,4 +95,9 @@ public class PageController {
     public String questionTextOper(){
         return "operation/questionTextOper";
     }
+
+    @RequestMapping("/myExamTeacher")
+    public String myExamTeacher(){
+        return "exam/myExamTeacher";
+    }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface ExamDao {
-    List<Exam> selectAll(String subject, String search);
+    List<Exam> selectAll(Integer teacherId, String search);
 
     int examAdd(Exam exam);
 

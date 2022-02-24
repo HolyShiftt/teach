@@ -5,7 +5,7 @@ import com.xwc.teach.exam.entity.Exam;
 import java.util.List;
 
 public interface ExamService {
-    List<Exam> selectAll(String subject, String search);
+    List<Exam> selectAll(Integer teacherId, String search);
 
     int examAdd(Exam exam);
 
