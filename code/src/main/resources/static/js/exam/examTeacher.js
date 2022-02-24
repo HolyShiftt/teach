@@ -300,8 +300,11 @@ layui.use(['layer','form'], function () {
                         , "sclass": $("#sclass").val()
                         , "teacherId": teacherId
                         , "radioList": radioList
+                        , "radioScore": $("#radioScore").val()
                         , "tellList": tellList
+                        , "tellScore": $("#tellScore").val()
                         , "textList": textList
+                        , "textScore": $("#textScore").val()
                         , "sum": $("#sum")
                     },
                     success : function(d) {

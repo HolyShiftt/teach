@@ -23,9 +23,15 @@ public class Exam {
 
     private String radioList;
 
+    private Integer radioScore;
+
     private String tellList;
 
+    private Integer tellScore;
+
     private String textList;
+
+    private Integer textScore;
 
     private Integer sum;
 }
