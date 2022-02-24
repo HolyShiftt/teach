@@ -21,6 +21,9 @@
     <select id="examInfo" resultType="com.xwc.teach.exam.entity.Exam">
         select * from exam_info where id = #{id}
     </select>
+    <select id="examListStu" resultType="com.xwc.teach.exam.entity.Exam">
+        select * from exam_info where grade = #{grade} and sclass = #{sclass}
+    </select>
 
 
 </mapper>

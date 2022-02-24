@@ -7,7 +7,10 @@ layui.use(['layer','table'], function () {
     var grade = sessionStorage.getItem("grade");
     if (role != 3){
         $("#courseDiv").attr("style","display:none")
+        $("#examDiv").attr("style","display:none")
     }
+    $("#courseClass").html(grade+"年级("+stuclass+")班课程表")
+    $("#examClass").html(grade+"年级("+stuclass+")班考试安排")
 
     table.render({
         elem: '#course'
@@ -24,7 +27,19 @@ layui.use(['layer','table'], function () {
         ]]
     });
 
-    $("#courseClass").html(grade+"年级("+stuclass+")班课程表")
+    table.render({
+        elem: '#exam'
+        , url: '/exam/examListStu'
+        , where:{grade:grade,sclass:stuclass}
+        , cols: [[
+            {field: 'startTime', title: '开始时间', align: 'center'}
+            , {field: 'endTime', title: '结束时间', align: 'center'}
+            , {field: 'subject', title: '科目', align: 'center'}
+            , {field: 'name', title: '名称', align: 'center'}
+        ]]
+    });
+
+
     $.ajax({
         url:'/notice/noticeList',
         data:{limit:5},

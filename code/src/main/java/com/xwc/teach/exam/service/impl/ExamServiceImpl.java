@@ -19,6 +19,11 @@ public class ExamServiceImpl implements ExamService {
     }
 
     @Override
+    public List<Exam> examListStu(Integer grade, Integer sclass) {
+        return examDao.examListStu(grade,sclass);
+    }
+
+    @Override
     public int examAdd(Exam exam) {
         return examDao.examAdd(exam);
     }

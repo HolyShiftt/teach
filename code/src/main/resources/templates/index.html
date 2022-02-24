@@ -32,20 +32,32 @@
     </div>
 
     <div class="layui-body" style="background: #F2F4F7;">
-            <div class="layui-container">
-                <div class="layui-row" style="text-align: center">
+            <div class="layui-container" style="height: 100%">
+                <div class="layui-row" style="text-align: center;height: 100%">
                     <div class="layui-col-md9" style="padding-right: 50px" id="courseDiv">
                         <h1 id="courseClass"></h1>
                         <table id="course"></table>
                     </div>
-                    <div class="layui-col-md3">
-                        <div style="height: 50%;background: #fff;" >
+                    <div class="layui-col-md3" style="height: 45%">
+                        <div style="height: 100%;background: #fff;" >
                             <div class="notices-title">
                                 <div class="gg">通知消息</div>
                                 <a href="javascript:;" id="moreNotice" >更多</a>
                             </div>
                             <ul style="margin:0 10px;text-align: left" class="notice" id="noticeList">
-
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="layui-col-md9" style="padding-right: 50px" id="examDiv">
+                        <h1 id="examClass"></h1>
+                        <table id="exam"></table>
+                    </div>
+                    <div class="layui-col-md3" style="height: 45%">
+                        <div style="height: 100%;background: #fff;" >
+                            <div class="notices-title">
+                                <div class="gg">作业</div>
+                            </div>
+                            <ul style="margin:0 10px;text-align: left" class="notice" id="workList">
                             </ul>
                         </div>
                     </div>

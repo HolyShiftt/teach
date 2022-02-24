@@ -27,6 +27,13 @@ public class ExamController {
         List<Exam> list = examService.selectAll(teacherId,search);
         return Table.success(Long.valueOf(page.getTotal()),list);
     }
+    @RequestMapping("/examListStu")
+    @ResponseBody
+    public Table examListStu(Integer grade, Integer sclass, Pages pages){
+        Page<?> page = PageHelper.startPage(pages.getPage(), pages.getLimit());
+        List<Exam> list = examService.examListStu(grade,sclass);
+        return Table.success(Long.valueOf(page.getTotal()),list);
+    }
 
     @RequestMapping("/examAdd")
     @ResponseBody

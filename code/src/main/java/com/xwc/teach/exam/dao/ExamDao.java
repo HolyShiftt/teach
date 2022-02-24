@@ -9,6 +9,8 @@ import java.util.List;
 public interface ExamDao {
     List<Exam> selectAll(Integer teacherId, String search);
 
+    List<Exam> examListStu(Integer grade, Integer sclass);
+
     int examAdd(Exam exam);
 
     int examDel(Integer id);
