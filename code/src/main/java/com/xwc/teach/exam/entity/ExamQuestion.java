@@ -18,4 +18,6 @@ public class ExamQuestion {
     private Integer tellScore;
 
     private Integer textScore;
+
+    private Integer questionSum;
 }

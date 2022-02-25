@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -85,8 +86,9 @@ public class ExamController {
 
     @RequestMapping("/showExamQuestion")
     @ResponseBody
-    public ExamQuestion showExamQuestion(Integer id){
-        ExamQuestion examQuestion = examService.showExamQuestion(id);
+    public ExamQuestion showExamQuestion(HttpSession session){
+        ExamQuestion examQuestion = examService.showExamQuestion((Integer) session.getAttribute("examId"));
+        examQuestion.setQuestionSum(examQuestion.getQuestionRadioList().size()+examQuestion.getQuestionTellList().size()+examQuestion.getQuestionTextList().size());
         return examQuestion;
     }
 }
