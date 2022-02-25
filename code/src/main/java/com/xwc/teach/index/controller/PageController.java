@@ -105,4 +105,10 @@ public class PageController {
     public String examStudent(){
         return "exam/examStudent";
     }
+
+    @RequestMapping("/doExam")
+    public String doExam(Integer id,HttpSession session){
+        session.setAttribute("examId",id);
+        return "exam/doExam";
+    }
 }

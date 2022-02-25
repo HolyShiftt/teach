@@ -1,6 +1,7 @@
 package com.xwc.teach.exam.service;
 
 import com.xwc.teach.exam.entity.Exam;
+import com.xwc.teach.exam.entity.ExamQuestion;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface ExamService {
     Exam examInfo(Integer id);
 
     int examUpd(Exam exam);
+
+    ExamQuestion showExamQuestion(Integer id);
 }

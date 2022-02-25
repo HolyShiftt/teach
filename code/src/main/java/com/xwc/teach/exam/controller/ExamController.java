@@ -6,6 +6,7 @@ import com.xwc.teach.commons.Pages;
 import com.xwc.teach.commons.Result;
 import com.xwc.teach.commons.Table;
 import com.xwc.teach.exam.entity.Exam;
+import com.xwc.teach.exam.entity.ExamQuestion;
 import com.xwc.teach.exam.service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -80,5 +81,12 @@ public class ExamController {
             result.setMsg("修改失败");
         }
         return result;
+    }
+
+    @RequestMapping("/showExamQuestion")
+    @ResponseBody
+    public ExamQuestion showExamQuestion(Integer id){
+        ExamQuestion examQuestion = examService.showExamQuestion(id);
+        return examQuestion;
     }
 }
