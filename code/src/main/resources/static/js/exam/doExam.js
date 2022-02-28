@@ -10,6 +10,25 @@ layui.use(['layer', 'form'], function () {
     $("#stuInfo1").html(realName)
     $("#stuInfo2").html(grade + "年级(" + stuclass + ")班")
     var radioList,tellList,textList,examList
+
+    // 设置倒计时
+    var div = document.getElementById("showtime");
+    setInterval (function () {
+        div.innerHTML = showtime(sessionStorage.getItem("endTime"));
+        for (let i = radioList.length+tellList.length; i < examList.length; i++) {
+            var num = Number(i)+1;
+            if ($("#"+i).val()){
+                $("#btn"+num).css("background-color",'#009688').css("color",'white')
+                $("#btn"+num).addClass("done")
+                element.progress('demo', toPercent(document.getElementsByClassName('done').length/examList.length));
+            }
+
+
+        }
+
+    }, 1000);  //反复执行函数本身
+
+
     $.ajax('/exam/showExamQuestion', {
         sync:false,
         success: function (d) {
@@ -61,10 +80,10 @@ layui.use(['layer', 'form'], function () {
                 <div class="layui-card-header" style="display:flow-root;text-align: center;font-size: 20px;">` + examList[num].title + `</div>
                 <div class="layui-card-body" style="text-align: center;font-size: 20px;" >
                 <form class="layui-form">
-                        <input type="radio" name="` + examList[num].id + `" lay-filter="question" value="A" title="A:` + examList[num].answer1 + `"><br>
-                        <input type="radio" name="` + examList[num].id + `" lay-filter="question" value="B" title="B:` + examList[num].answer2 + `"><br>
-                        <input type="radio" name="` + examList[num].id + `" lay-filter="question" value="C" title="C:` + examList[num].answer3 + `"><br>
-                        <input type="radio" name="` + examList[num].id + `" lay-filter="question" value="D" title="D:` + examList[num].answer4 + `"><br>
+                        <input type="radio" id ="`+num+`" name="` + examList[num].id + `" lay-filter="question" value="A" title="A:` + examList[num].answer1 + `"><br>
+                        <input type="radio" id ="`+num+`" name="` + examList[num].id + `" lay-filter="question" value="B" title="B:` + examList[num].answer2 + `"><br>
+                        <input type="radio" id ="`+num+`" name="` + examList[num].id + `" lay-filter="question" value="C" title="C:` + examList[num].answer3 + `"><br>
+                        <input type="radio" id ="`+num+`" name="` + examList[num].id + `" lay-filter="question" value="D" title="D:` + examList[num].answer4 + `"><br>
                 </form>`+btn+`
                 </div>
             </div>`)
@@ -82,8 +101,8 @@ layui.use(['layer', 'form'], function () {
                 <div class="layui-card-header" style="display:flow-root;text-align: center;font-size: 20px;">` + examList[num].title + `</div>
                 <div class="layui-card-body" style="text-align: center;font-size: 20px;" >
                 <form class="layui-form">
-                        <input type="radio" name="` + examList[num].id + `" lay-filter="question" value="true" title="对"><br>
-                        <input type="radio" name="` + examList[num].id + `" lay-filter="question" value="false" title="错"><br>
+                        <input type="radio" id ="`+num+`" name="` + examList[num].id + `" lay-filter="question" value="true" title="对"><br>
+                        <input type="radio" id ="`+num+`" name="` + examList[num].id + `" lay-filter="question" value="false" title="错"><br>
                 </form>`+btn+`
                 </div>
             </div>`)
@@ -94,14 +113,14 @@ layui.use(['layer', 'form'], function () {
         var num2 = num+2,btn
         var ansInput
         if (examList[num].answer3){
-            ansInput = `<label class="layui-form-label">1.</label><div class="layui-input-block"><input type="text" class="layui-input" name="first` + examList[num].id + `"></div><br>
-                        <label class="layui-form-label">2.</label><div class="layui-input-block"><input type="text" class="layui-input" name="second` + examList[num].id + `"></div><br>
-                        <label class="layui-form-label">3.</label><div class="layui-input-block"><input type="text" class="layui-input" name="third` + examList[num].id + `"></div><br>`
+            ansInput = `<label class="layui-form-label">1.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="`+num+`" name="first` + examList[num].id + `"></div><br>
+                        <label class="layui-form-label">2.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="`+num+`" name="second` + examList[num].id + `"></div><br>
+                        <label class="layui-form-label">3.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="`+num+`" name="third` + examList[num].id + `"></div><br>`
         }else if(examList[num].answer2){
-            ansInput = `<label class="layui-form-label">1.</label><div class="layui-input-block"><input type="text" class="layui-input" name="first` + examList[num].id + `"></div><br>
-                        <label class="layui-form-label">2.</label><div class="layui-input-block"><input type="text" class="layui-input" name="second` + examList[num].id + `"></div><br>`
+            ansInput = `<label class="layui-form-label">1.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="`+num+`" name="first` + examList[num].id + `"></div><br>
+                        <label class="layui-form-label">2.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="`+num+`" name="second` + examList[num].id + `"></div><br>`
         }else{
-            ansInput = `<label class="layui-form-label">1.</label><div class="layui-input-block"><input type="text" class="layui-input" name="first` + examList[num].id + `"></div><br>`
+            ansInput = `<label class="layui-form-label">1.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="`+num+`" name="first` + examList[num].id + `"></div><br>`
         }
         if (num+1 == examList.length){
             btn = `<div style="text-align: center;margin-top: 30px"><button class="layui-btn" onclick="sub()">交卷</button> </div>`
@@ -143,6 +162,8 @@ layui.use(['layer', 'form'], function () {
         }
     }
 
+
+
     function toPercent(point){
         if (point==0) {
             return 0;
@@ -150,6 +171,28 @@ layui.use(['layer', 'form'], function () {
         var str=Number(point*100).toFixed();
         str+="%";
         return str;
+    }
+
+    var showtime = function (endtime) {
+        var nowtime = new Date();
+        endtime = new Date(endtime);
+        var lefttime = endtime.getTime() - nowtime.getTime(),  //距离结束时间的毫秒数
+            leftd = Math.floor(lefttime/(1000*60*60*24)),  //计算天数
+            lefth = Math.floor(lefttime/(1000*60*60)%24),  //计算小时数
+            leftm = Math.floor(lefttime/(1000*60)%60),  //计算分钟数
+            lefts = Math.floor(lefttime/1000%60);  //计算秒数
+        return leftd + "天" + lefth + ":" + leftm + ":" + lefts;  //返回倒计时的字符串
+    }
+
+
+    sub = function () {
+        layer.msg("交卷成功", {
+            icon: 6,
+            time: 2000
+        }, function () {
+            location.href="/"
+        })
+
     }
 
 })

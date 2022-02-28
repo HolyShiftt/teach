@@ -10,6 +10,7 @@ layui.use(['layer','form'], function () {
     $.get('/exam/examListStu?grade=' + sessionStorage.getItem("grade") + '&sclass=' + sessionStorage.getItem("class"), function (d) {
         for (const exam of d.data) {
             var btn;
+            sessionStorage.setItem("endTime",exam.endTime) ;
             if (new Date(exam.endTime) >= new Date()){
                 $("#examTable").append(`<div class="layui-card" style="margin-top: 20px">
                 <div class="layui-card-header" style="padding:10px"><h1>` + exam.name + `</h1></div>
