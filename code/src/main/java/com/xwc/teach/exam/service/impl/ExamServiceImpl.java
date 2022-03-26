@@ -90,4 +90,9 @@ public class ExamServiceImpl implements ExamService {
         }
         return examQuestion;
     }
+
+    @Override
+    public List<Score> scoreList(Integer id) {
+        return examDao.scoreList(id);
+    }
 }

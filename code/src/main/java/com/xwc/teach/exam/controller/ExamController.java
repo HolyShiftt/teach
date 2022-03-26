@@ -7,6 +7,7 @@ import com.xwc.teach.commons.Result;
 import com.xwc.teach.commons.Table;
 import com.xwc.teach.exam.entity.Exam;
 import com.xwc.teach.exam.entity.ExamQuestion;
+import com.xwc.teach.exam.entity.Score;
 import com.xwc.teach.exam.service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -90,5 +91,12 @@ public class ExamController {
         ExamQuestion examQuestion = examService.showExamQuestion((Integer) session.getAttribute("examId"));
         examQuestion.setQuestionSum(examQuestion.getQuestionRadioList().size()+examQuestion.getQuestionTellList().size()+examQuestion.getQuestionTextList().size());
         return examQuestion;
+    }
+
+    @RequestMapping("/scoreList")
+    @ResponseBody
+    public Table scoreList(Integer id){
+        List<Score> list = examService.scoreList(id);
+        return Table.success(Long.valueOf(0),list);
     }
 }

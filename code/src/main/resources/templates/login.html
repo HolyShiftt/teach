@@ -17,9 +17,10 @@
             </div>
             <div class="layui-col-md6 layui-form">
                 <span class="login-form-title">欢迎登陆智慧教学管理系统</span>
-                <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="padding-left: 100px">
+                <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="padding-left: 30px">
                     <ul class="layui-tab-title">
                         <li class="layui-this">学生登录</li>
+                        <li>家长登录</li>
                         <li>老师登录</li>
                         <li>管理员登录</li>
                     </ul>
@@ -29,15 +30,12 @@
                                 <div class="wrap-input validate-input">
                                     <input class="input" type="text" name="username" placeholder="请输入账号/手机号">
                                     <span class="focus-input"></span>
-                                    <span class="symbol-input"><i class="layui-icon"
-                                                                  style="font-size: 20px;">&#xe66f;</i></span>
-                                </div>
+                                    <span class="symbol-input"><i class="layui-icon" style="font-size: 20px;">&#xe66f;</i></span></div>
                                 <div class="wrap-input validate-input">
                                     <input class="input" type="password" name="password" placeholder="请输入密码">
                                     <input class="input" style="display: none" name="role" value=3>
                                     <span class="focus-input"></span>
-                                    <span class="symbol-input"><i class="layui-icon"
-                                                                  style="font-size: 20px;">&#xe683;</i></span>
+                                    <span class="symbol-input"><i class="layui-icon" style="font-size: 20px;">&#xe683;</i></span>
                                 </div>
                                 <div class="container-login-form-btn">
                                     <button class="login-form-btn" lay-filter="stuLoginIn" lay-submit="">
@@ -54,21 +52,39 @@
                                 <div class="wrap-input validate-input">
                                     <input class="input" type="text" name="username" placeholder="请输入账号/手机号">
                                     <span class="focus-input"></span>
-                                    <span class="symbol-input">
-                            <i class="layui-icon" style="font-size: 20px;">&#xe66f;</i>
-					</span>
+                                    <span class="symbol-input"><i class="layui-icon" style="font-size: 20px;">&#xe66f;</i></span>
+                                </div>
+                                <div class="wrap-input validate-input">
+                                    <input class="input" type="password" name="password" placeholder="请输入密码">
+                                    <input class="input" style="display: none" name="role" value=4>
+                                    <span class="focus-input"></span>
+                                    <span class="symbol-input"><i class="layui-icon" style="font-size: 20px;">&#xe683;</i></span>
+                                </div>
+                                <div class="container-login-form-btn">
+                                    <button class="login-form-btn" lay-filter="teacherLoginIn" lay-submit="parentLoginIn">
+                                        家长登陆
+                                    </button>
+                                </div>
+                                <div class="p-t-12" style="text-align: center;margin-top: 20px">
+                                    <a class="txt2" href="javascript:">忘记密码？</a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="layui-tab-item">
+                            <form class="layui-form" method="post">
+                                <div class="wrap-input validate-input">
+                                    <input class="input" type="text" name="username" placeholder="请输入账号/手机号">
+                                    <span class="focus-input"></span>
+                                    <span class="symbol-input"><i class="layui-icon" style="font-size: 20px;">&#xe66f;</i></span>
                                 </div>
                                 <div class="wrap-input validate-input">
                                     <input class="input" type="password" name="password" placeholder="请输入密码">
                                     <input class="input" style="display: none" name="role" value=2>
                                     <span class="focus-input"></span>
-                                    <span class="symbol-input">
-                            <i class="layui-icon" style="font-size: 20px;">&#xe683;</i>
-					</span>
+                                    <span class="symbol-input"><i class="layui-icon" style="font-size: 20px;">&#xe683;</i></span>
                                 </div>
                                 <div class="container-login-form-btn">
-                                    <button class="login-form-btn" lay-filter="teacherLoginIn"
-                                            lay-submit="teacherLoginIn">
+                                    <button class="login-form-btn" lay-filter="teacherLoginIn" lay-submit="teacherLoginIn">
                                         老师登陆
                                     </button>
                                 </div>
@@ -82,17 +98,13 @@
                                 <div class="wrap-input validate-input">
                                     <input class="input" type="text" name="username" placeholder="请输入账号/手机号">
                                     <span class="focus-input"></span>
-                                    <span class="symbol-input">
-                            <i class="layui-icon" style="font-size: 20px;">&#xe66f;</i>
-					</span>
+                                    <span class="symbol-input"><i class="layui-icon" style="font-size: 20px;">&#xe66f;</i></span>
                                 </div>
                                 <div class="wrap-input validate-input">
                                     <input class="input" type="password" name="password" placeholder="请输入密码">
                                     <input class="input" style="display: none" name="role" value=1>
                                     <span class="focus-input"></span>
-                                    <span class="symbol-input">
-                            <i class="layui-icon" style="font-size: 20px;">&#xe683;</i>
-					</span>
+                                    <span class="symbol-input"><i class="layui-icon" style="font-size: 20px;">&#xe683;</i></span>
                                 </div>
                                 <div class="container-login-form-btn">
                                     <button class="login-form-btn" lay-filter="adminLoginIn" lay-submit="">管理员登陆

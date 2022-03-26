@@ -1,6 +1,7 @@
 package com.xwc.teach.exam.dao;
 
 import com.xwc.teach.exam.entity.Exam;
+import com.xwc.teach.exam.entity.Score;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface ExamDao {
     Exam examInfo(Integer id);
 
     int examUpd(Exam exam);
+
+    List<Score> scoreList(Integer id);
 }

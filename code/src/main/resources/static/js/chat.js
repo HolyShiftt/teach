@@ -35,9 +35,9 @@ window.onload = function conectWebSocket(){
     }
 }
 //将消息显示在网页上
-function setMessageInnerHTML(innerHTML) {
-    document.getElementById('message').innerHTML +=sessionStorage.getItem("realName")+":"+ innerHTML + '<br/>';
-}
+// function setMessageInnerHTML(innerHTML) {
+//     document.getElementById('message').innerHTML +=sessionStorage.getItem("realName")+":"+ innerHTML + '<br/>';
+// }
 //关闭连接
 function closeWebSocket() {
     websocket.close();

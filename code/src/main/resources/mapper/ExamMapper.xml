@@ -24,6 +24,12 @@
     <select id="examListStu" resultType="com.xwc.teach.exam.entity.Exam">
         select * from exam_info where grade = #{grade} and sclass = #{sclass}
     </select>
+    <select id="scoreList" resultType="com.xwc.teach.exam.entity.Score">
+        select s.stu_id as stuId,u.real_name as stuName,e.score from exam_score e
+        left join student s on e.stu_id = s.id
+        left join user u on s.user_id = u.id
+        where exam_id = #{id}
+    </select>
 
 
 </mapper>

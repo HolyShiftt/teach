@@ -6,10 +6,14 @@
     <link rel="stylesheet" href="/js/layui/css/layui.css">
     <link rel="stylesheet" href="/css/head.css">
     <style>
-        #message{
+        #messag{
             margin-top:40px;
             border:1px solid gray;
             padding:20px;
+        }
+        .layui-input-block{
+            margin-left: 0; !important;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -31,14 +35,25 @@
         </ul>
     </div>
     <div class="layui-body">
-        <div style="margin:auto;width: 80%;text-align: center">
+        <div style="margin:auto;width: 80%">
 <!--            <button onclick="conectWebSocket()">连接WebSocket</button>-->
 <!--            <button onclick="closeWebSocket()">断开连接</button>-->
 <!--            <hr />-->
 <!--            <br />-->
-            消息：<input id="text" type="text" />
-            <button onclick="send()">发送消息</button>
-            <div id="message"></div>
+
+            <div id="messag">
+                许伟聪:早上好
+            </div>
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <div class="layui-input-block" style="display: flex">
+                        <input type="text" name="title" required id="text"  lay-verify="required" autocomplete="off" class="layui-input">
+                        <button class="layui-btn" onclick="send()" style="width: 100px">发送</button>
+                    </div>
+
+                </div>
+            </form>
+
         </div>
     </div>
 

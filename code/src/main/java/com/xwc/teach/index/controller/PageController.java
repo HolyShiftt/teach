@@ -111,4 +111,9 @@ public class PageController {
         session.setAttribute("examId",id);
         return "exam/doExam";
     }
+
+    @RequestMapping("/myExamStu")
+    public String myExamStu(){
+        return "exam/myExamStu";
+    }
 }

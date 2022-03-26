@@ -45,6 +45,10 @@ layui.use(['layer', 'element'], function () {
         login(data)
         return false;
     })
+    form.on('submit(parentLoginIn)', function (data) {
+        login(data)
+        return false;
+    })
 
 
 })

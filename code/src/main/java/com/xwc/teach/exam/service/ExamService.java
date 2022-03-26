@@ -2,6 +2,7 @@ package com.xwc.teach.exam.service;
 
 import com.xwc.teach.exam.entity.Exam;
 import com.xwc.teach.exam.entity.ExamQuestion;
+import com.xwc.teach.exam.entity.Score;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface ExamService {
     int examUpd(Exam exam);
 
     ExamQuestion showExamQuestion(Integer id);
+
+    List<Score> scoreList(Integer id);
 }
