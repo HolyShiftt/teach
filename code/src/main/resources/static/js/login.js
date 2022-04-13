@@ -15,6 +15,7 @@ layui.use(['layer', 'element'], function () {
                 if (data.msg.role == 3){
                     sessionStorage.setItem("grade",data.msg.student.stuGrade)
                     sessionStorage.setItem("class",data.msg.student.stuClass)
+                    sessionStorage.setItem("stuId",data.msg.student.id)
                 }else if (data.msg.role == 2){
                     sessionStorage.setItem("subject",data.msg.teacherSubject)
                 }else if (data.msg.role == 4){

@@ -1,3 +1,4 @@
+var questionNum;
 layui.use(['layer', 'form'], function () {
     var $ = layui.jquery,
         layer = layui.layer,
@@ -17,7 +18,7 @@ layui.use(['layer', 'form'], function () {
         div.innerHTML = showtime(sessionStorage.getItem("endTime"));
         for (let i = radioList.length + tellList.length; i < examList.length; i++) {
             var num = Number(i) + 1;
-            if ($("#" + i).val()) {
+            if ($("#q" + i).val()) {
                 $("#btn" + num).css("background-color", '#009688').css("color", 'white')
                 $("#btn" + num).addClass("done")
                 element.progress('demo', toPercent(document.getElementsByClassName('done').length / examList.length));
@@ -32,6 +33,7 @@ layui.use(['layer', 'form'], function () {
     $.ajax('/exam/showExamQuestion', {
         sync: false,
         success: function (d) {
+            questionNum = d.questionSum;
             $("#stuInfo3").html(d.examName)
             for (let i = 0; i < d.questionSum; i++) {
                 var num = i + 1
@@ -81,10 +83,11 @@ layui.use(['layer', 'form'], function () {
                 <div class="layui-card-header" style="display:flow-root;text-align: center;font-size: 20px;">` + examList[num].title + `</div>
                 <div class="layui-card-body" style="text-align: center;font-size: 20px;" >
                 <form class="layui-form">
-                        <input type="radio" id ="` + num + `" name="` + examList[num].id + `" lay-filter="question" value="A" title="A:` + examList[num].answer1 + `"><br>
-                        <input type="radio" id ="` + num + `" name="` + examList[num].id + `" lay-filter="question" value="B" title="B:` + examList[num].answer2 + `"><br>
-                        <input type="radio" id ="` + num + `" name="` + examList[num].id + `" lay-filter="question" value="C" title="C:` + examList[num].answer3 + `"><br>
-                        <input type="radio" id ="` + num + `" name="` + examList[num].id + `" lay-filter="question" value="D" title="D:` + examList[num].answer4 + `"><br>
+                        <input id ="q` + num + `" name="` + examList[num].id + `" value="" hidden>
+                        <input type="radio" id ="q` + num + `" name="` + examList[num].id + `" lay-filter="question" value="A" title="A:` + examList[num].answer1 + `"><br>
+                        <input type="radio" id ="q` + num + `" name="` + examList[num].id + `" lay-filter="question" value="B" title="B:` + examList[num].answer2 + `"><br>
+                        <input type="radio" id ="q` + num + `" name="` + examList[num].id + `" lay-filter="question" value="C" title="C:` + examList[num].answer3 + `"><br>
+                        <input type="radio" id ="q` + num + `" name="` + examList[num].id + `" lay-filter="question" value="D" title="D:` + examList[num].answer4 + `"><br>
                 </form>` + btn + `
                 </div>
             </div>`)
@@ -102,8 +105,9 @@ layui.use(['layer', 'form'], function () {
                 <div class="layui-card-header" style="display:flow-root;text-align: center;font-size: 20px;">` + examList[num].title + `</div>
                 <div class="layui-card-body" style="text-align: center;font-size: 20px;" >
                 <form class="layui-form">
-                        <input type="radio" id ="` + num + `" name="` + examList[num].id + `" lay-filter="question" value="true" title="对"><br>
-                        <input type="radio" id ="` + num + `" name="` + examList[num].id + `" lay-filter="question" value="false" title="错"><br>
+                        <input id ="q` + num + `" name="` + examList[num].id + `" value=""  hidden>
+                        <input type="radio" id ="q` + num + `" name="` + examList[num].id + `" lay-filter="question" value="1" title="对"><br>
+                        <input type="radio" id ="q` + num + `" name="` + examList[num].id + `" lay-filter="question" value="0" title="错"><br>
                 </form>` + btn + `
                 </div>
             </div>`)
@@ -114,14 +118,14 @@ layui.use(['layer', 'form'], function () {
         var num2 = num + 2, btn
         var ansInput
         if (examList[num].answer3) {
-            ansInput = `<label class="layui-form-label">1.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="` + num + `" name="first` + examList[num].id + `"></div><br>
-                        <label class="layui-form-label">2.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="` + num + `" name="second` + examList[num].id + `"></div><br>
-                        <label class="layui-form-label">3.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="` + num + `" name="third` + examList[num].id + `"></div><br>`
+            ansInput = `<label class="layui-form-label">1.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="q` + num + `" name="first` + num + `"></div><br>
+                        <label class="layui-form-label">2.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="q` + num + `" name="second` + num + `"></div><br>
+                        <label class="layui-form-label">3.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="q` + num + `" name="third` + num + `"></div><br>`
         } else if (examList[num].answer2) {
-            ansInput = `<label class="layui-form-label">1.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="` + num + `" name="first` + examList[num].id + `"></div><br>
-                        <label class="layui-form-label">2.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="` + num + `" name="second` + examList[num].id + `"></div><br>`
+            ansInput = `<label class="layui-form-label">1.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="q` + num + `" name="first` + num + `"></div><br>
+                        <label class="layui-form-label">2.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="q` + num + `" name="second` + num + `"></div><br>`
         } else {
-            ansInput = `<label class="layui-form-label">1.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="` + num + `" name="first` + examList[num].id + `"></div><br>`
+            ansInput = `<label class="layui-form-label">1.</label><div class="layui-input-block"><input type="text" class="layui-input" id ="q` + num + `" name="first` + num + `"></div><br>`
         }
         if (num + 1 == examList.length) {
             btn = `<div style="text-align: center;margin-top: 30px"><button class="layui-btn" onclick="sub('交卷成功')">交卷</button> </div>`
@@ -146,22 +150,23 @@ layui.use(['layer', 'form'], function () {
     }
 
     form.on('radio(question)', function (data) {
-        var num = Number(data.elem.id) + 1
+        $("#"+data.elem.id).val(data.value)
+        var num = Number(data.elem.id.substr(1)) + 1
         $("#btn" + num).css("background-color", '#009688').css("color", 'white')
         $("#btn" + num).addClass("done")
         element.progress('demo', toPercent(document.getElementsByClassName('done').length / examList.length));
     });
 
-    window.sub = function () {
-        for (let i = 0; i < examList.length; i++) {
-            if (i >= radioList.length + tellList.length) {
-                var a = $("input[name=first" + examList[i].id + "]").val() + ","
-                    + $("input[name=second" + examList[i].id + "]").val() + "," + $("input[name=third" + examList[i].id + "]").val()
-                $("input[name=" + examList[i].id + "]:checked").val(a)
-            }
-            console.log($("input[name=" + examList[i].id + "]:checked").val())
-        }
-    }
+    // window.sub = function () {
+    //     for (let i = 0; i < examList.length; i++) {
+    //         if (i >= radioList.length + tellList.length) {
+    //             var a = $("input[name=first" + examList[i].id + "]").val() + ","
+    //                 + $("input[name=second" + examList[i].id + "]").val() + "," + $("input[name=third" + examList[i].id + "]").val()
+    //             $("input[name=" + examList[i].id + "]:checked").val(a)
+    //         }
+    //         console.log($("input[name=" + examList[i].id + "]:checked").val())
+    //     }
+    // }
 
 
     function toPercent(point) {
@@ -185,12 +190,24 @@ layui.use(['layer', 'form'], function () {
 
 
     sub = function (msg) {
-        $.post("/111",{data:form.field}, function (data) {
+        var info = "?stuId="+sessionStorage.getItem("stuId")+"&answer=";
+        for (let i = 0; i < questionNum; i++){
+            if ($("#q"+i).val()==""){
+                $("#q"+i).val(" ")
+            }
+            if ($("input[name=third" + i + "]").val()){
+                $("#q"+i).val($("input[name=first" + i + "]").val()+","+$("input[name=second" + i + "]").val()+","+$("input[name=third" + i + "]").val())
+            }else if($("input[name=second" + i + "]").val()){
+                $("#q"+i).val($("input[name=first" + i + "]").val()+","+$("input[name=second" + i + "]").val())
+            }
+            info+=$("#q"+i).val()+";";
+        }
+        $.post("/exam/getScore"+info, function (data) {
             layer.msg(msg, {
                 icon: 6,
                 time: 2000
             }, function () {
-
+                location.href="/"
             })
         });
     }

@@ -8,4 +8,6 @@ public class Score {
     private String stuName;
     private Integer examId;
     private Integer score;
+    private String examName;
+    private String examSub;
 }

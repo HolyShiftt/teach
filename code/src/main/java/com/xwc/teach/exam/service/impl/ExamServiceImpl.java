@@ -30,8 +30,8 @@ public class ExamServiceImpl implements ExamService {
     }
 
     @Override
-    public List<Exam> examListStu(Integer grade, Integer sclass) {
-        return examDao.examListStu(grade,sclass);
+    public List<Exam> examListStu(Integer grade, Integer sclass,Integer stuId) {
+        return examDao.examListStu(grade,sclass,stuId);
     }
 
     @Override
@@ -96,4 +96,21 @@ public class ExamServiceImpl implements ExamService {
     public List<Score> scoreList(Integer id) {
         return examDao.scoreList(id);
     }
+
+    @Override
+    public List<Score> myScoreList(Integer stuId,String subject) {
+        return examDao.myScoreList(stuId,subject);
+    }
+
+    @Override
+    public void setScore(Integer examId, Integer stuId, Integer score) {
+        examDao.setScore(examId,stuId,score);
+    }
+
+    @Override
+    public int checkExam(Integer stuId,Integer examId) {
+        return examDao.checkExam(examId,stuId);
+    }
+
+
 }

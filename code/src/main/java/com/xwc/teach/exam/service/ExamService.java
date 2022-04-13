@@ -9,7 +9,7 @@ import java.util.List;
 public interface ExamService {
     List<Exam> selectAll(Integer teacherId, String search);
 
-    List<Exam> examListStu(Integer grade, Integer sclass);
+    List<Exam> examListStu(Integer grade, Integer sclass,Integer stuId);
 
     int examAdd(Exam exam);
 
@@ -22,4 +22,10 @@ public interface ExamService {
     ExamQuestion showExamQuestion(Integer id);
 
     List<Score> scoreList(Integer id);
+
+    List<Score> myScoreList(Integer stuId,String subject);
+
+    void setScore(Integer examId,Integer stuId, Integer score);
+
+    int checkExam(Integer stuId,Integer examId);
 }

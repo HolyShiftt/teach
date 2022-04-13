@@ -9,15 +9,23 @@ layui.use(['layer','form'], function () {
 
     form.render();
 
-    // table.render({
-    //     elem: '#noticeTable'
-    //     , url: '/notice/noticeList'
-    //     , page: true
-    //     , cols: [[
-    //         {field: 'title', title: '考试名称', align: 'center'}
-    //         , {field: 'createTime', title: '完成时间', align: 'center'}
-    //         , {field: '', title: '成绩', align: 'center'}
-    //     ]]
-    // });
+    scoreTable = table.render({
+        elem: '#scoreTable'
+        , url: '/exam/myScoreList?stuId='+sessionStorage.getItem("stuId")
+        , page: true
+        , cols: [[
+            {field: 'examSub', title: '考试科目', align: 'center'}
+            , {field: 'examName', title: '考试名称', align: 'center'}
+            , {field: 'score', title: '成绩', align: 'center'}
+        ]]
+    });
+
+    $("#search").click(function () {
+        scoreTable.reload({
+            where: {
+                subject:$("#subject").val(),
+            }
+        });
+    })
 
 })

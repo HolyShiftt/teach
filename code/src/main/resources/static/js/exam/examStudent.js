@@ -7,7 +7,8 @@ layui.use(['layer','form'], function () {
         transfer = layui.transfer;
 
     $("#examStudent").addClass("layui-this");
-    $.get('/exam/examListStu?grade=' + sessionStorage.getItem("grade") + '&sclass=' + sessionStorage.getItem("class"), function (d) {
+    $.get('/exam/examListStu?grade=' + sessionStorage.getItem("grade") + '&sclass=' + sessionStorage.getItem("class")
+        + '&stuId=' + sessionStorage.getItem("stuId"), function (d) {
         for (const exam of d.data) {
             var btn;
             sessionStorage.setItem("endTime",exam.endTime) ;
@@ -26,6 +27,15 @@ layui.use(['layer','form'], function () {
     })
 
     window.toExam = function (id) {
-        location.href="doExam?id="+id;
+        $.ajax('/exam/checkExam?stuId='+sessionStorage.getItem("stuId")+"&examId="+id, {
+            success: function (d) {
+                if (d.code == 0){
+                    location.href="doExam?id="+id;
+                }else{
+                    layer.alert(d.msg)
+                }
+            }
+        })
+
     }
 })

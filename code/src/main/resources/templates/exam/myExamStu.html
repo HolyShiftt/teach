@@ -30,31 +30,13 @@
                     <div style="float: right">
                         <label class="layui-form-label">科目</label>
                         <div class="layui-input-inline">
-                            <input id="title" name="title" autocomplete="off" class="layui-input" type="text"/>
+                            <input id="subject" name="subject" autocomplete="off" class="layui-input" type="text"/>
                         </div>
                         <button type="button" class="layui-btn layui-btn-search" id="search"><i class="layui-icon">&#xe615;</i>搜索</button>
                     </div>
                 </div>
             </form>
-            <table class="layui-table">
-                <thead>
-                <tr>
-                    <th style="text-align: center">考试名称</th>
-                    <th style="text-align: center">科目</th>
-                    <th style="text-align: center">考试时间</th>
-                    <th style="text-align: center">成绩</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>第一次语文考试</td>
-                    <td>语文</td>
-                    <td>2022-02-21 02:03:35</td>
-                    <td>23</td>
-                </tr>
-
-                </tbody>
-            </table>
+            <table id="scoreTable" lay-filter="scoreTable"></table>
         </div>
     </div>
 </div>

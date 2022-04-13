@@ -11,6 +11,10 @@
         index = #{index}
         where id = #{id}
     </update>
+    <insert id="setScore">
+        insert into exam_score (stu_id,exam_id,score)
+        values (#{stuId},#{examId},#{score})
+    </insert>
     <delete id="examDel">
         delete from exam_info where id = #{id}
     </delete>
@@ -22,13 +26,29 @@
         select * from exam_info where id = #{id}
     </select>
     <select id="examListStu" resultType="com.xwc.teach.exam.entity.Exam">
-        select * from exam_info where grade = #{grade} and sclass = #{sclass}
+        select i.* from exam_info i
+        left join exam_score s on i.id = s.exam_id
+        where grade = #{grade} and sclass = #{sclass}
     </select>
     <select id="scoreList" resultType="com.xwc.teach.exam.entity.Score">
         select s.stu_id as stuId,u.real_name as stuName,e.score from exam_score e
         left join student s on e.stu_id = s.id
         left join user u on s.user_id = u.id
         where exam_id = #{id}
+    </select>
+    <select id="checkExam" resultType="java.lang.Integer">
+        select count(*) from exam_score where stu_id = #{stuId}
+        and exam_id = #{examId}
+    </select>
+    <select id="myScoreList" resultType="com.xwc.teach.exam.entity.Score">
+        select i.subject as examSub,i.name as examName,e.score from exam_score e
+        left join exam_info i on i.id = e.exam_id
+        <where>
+            and e.stu_id = #{stuId}
+            <if test="subject != null and subject !=''">
+                and i.subject like concat('%',#{subject},'%')
+            </if>
+        </where>
     </select>
 
 
