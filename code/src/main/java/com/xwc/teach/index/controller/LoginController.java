@@ -35,6 +35,9 @@ public class LoginController {
             }else if(role == 2){
                 Teacher teacherSubject = userService.getTeacherSubject(user.getId());
                 user.setTeacherSubject(teacherSubject.getSubject());
+            }else if(role == 4){
+                User u = userService.getChild(user.getId());
+                user.setChildren(u);
             }
             session.setAttribute("user",user);
             result.setCode(1);
@@ -48,7 +51,7 @@ public class LoginController {
 
     @RequestMapping("/out")
     @ResponseBody
-    public Result login(HttpSession session) {
+    public Result logOut(HttpSession session) {
         Result result = new Result();
         if (session != null) {
             session.invalidate();//清除session

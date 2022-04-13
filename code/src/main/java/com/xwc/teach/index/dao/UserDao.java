@@ -32,4 +32,6 @@ public interface UserDao {
 
     Teacher getTeacherSubject(Integer id);
 
+    User getChild(Integer id);
+
 }

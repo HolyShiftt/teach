@@ -7,6 +7,8 @@ import java.util.List;
 @Data
 public class ExamQuestion {
 
+    private String examName;
+
     private List<QuestionRadio> questionRadioList;
 
     private List<QuestionTell> questionTellList;

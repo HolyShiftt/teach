@@ -49,7 +49,7 @@
       left join
       student s on s.user_id = u.id
     </if>
-    <if test="role == 4">
+    <if test="role == 2">
       left join
       teacher t on t.user_id = u.id
     </if>
@@ -82,5 +82,10 @@
   </select>
     <select id="getTeacherSubject" resultType="com.xwc.teach.index.entity.Teacher">
       select * from teacher where user_id = #{id}
+    </select>
+    <select id="getChild" resultType="com.xwc.teach.index.entity.User">
+      select u.* from parent p
+      left join `user` u on  u.id = p.stu_id
+      where p.user_id = #{id}
     </select>
 </mapper>

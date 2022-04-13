@@ -88,6 +88,7 @@ public class ExamServiceImpl implements ExamService {
             examQuestion.setQuestionTextList(questionTextList);
             examQuestion.setTextScore(exam.getTextScore());
         }
+        examQuestion.setExamName(exam.getName());
         return examQuestion;
     }
 

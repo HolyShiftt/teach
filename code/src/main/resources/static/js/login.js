@@ -17,6 +17,9 @@ layui.use(['layer', 'element'], function () {
                     sessionStorage.setItem("class",data.msg.student.stuClass)
                 }else if (data.msg.role == 2){
                     sessionStorage.setItem("subject",data.msg.teacherSubject)
+                }else if (data.msg.role == 4){
+                    sessionStorage.setItem("childUname",data.msg.children.username)
+                    sessionStorage.setItem("childRname",data.msg.children.realName)
                 }
 
                 layer.msg("登录成功，当前登录用户：" + data.msg.realName, {

@@ -8,6 +8,13 @@ layui.use(['layer','table'], function () {
     if (role != 3){
         $("#courseDiv").attr("style","display:none")
         $("#examDiv").attr("style","display:none")
+        $("#imgDiv").attr("style","display:block")
+        $("#imgDiv2").attr("style","display:block")
+    }else{
+        $("#courseDiv").attr("style","display:block")
+        $("#examDiv").attr("style","display:block")
+        $("#imgDiv").attr("style","display:none")
+        $("#imgDiv2").attr("style","display:none")
     }
     $("#courseClass").html(grade+"年级("+stuclass+")班课程表")
     $("#examClass").html(grade+"年级("+stuclass+")班考试安排")

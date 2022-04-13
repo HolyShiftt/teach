@@ -152,6 +152,7 @@ layui.use(['layer','form'], function () {
             })
 
         })
+        // 生成按钮
         $("#"+type+"Random").click(function () {
             $.get("/question/questionList",{type:type,subject:subject}, function (d) {
                 var dataList = [],arr=[],len = d.data.length,r

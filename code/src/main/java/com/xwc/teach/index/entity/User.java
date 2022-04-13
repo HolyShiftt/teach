@@ -47,4 +47,6 @@ public class User {
     private Teacher teacher;
 
     private Student student;
+
+    private User children;
 }

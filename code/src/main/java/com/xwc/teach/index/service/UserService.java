@@ -31,4 +31,6 @@ public interface UserService {
 
     Teacher getTeacherSubject(Integer id);
 
+    User getChild(Integer id);
+
 }

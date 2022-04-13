@@ -8,7 +8,7 @@ public interface NoticeService {
 
     List<Notice> selectAll(Integer limit);
 
-    List<Notice> selectAll2();
+    List<Notice> selectAll2(String title);
 
     int noticeAdd(Notice notice);
 

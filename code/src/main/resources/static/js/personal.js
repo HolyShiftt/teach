@@ -4,8 +4,8 @@ layui.use(['layer'], function () {
         layer = layui.layer;
 
     $("#personal").addClass("layui-this")
-    var username = sessionStorage.getItem("username");
-    var role = sessionStorage.getItem("role");
+    var username = sessionStorage.getItem("role") == 4?sessionStorage.getItem("childUname"):sessionStorage.getItem("username");
+    var role = sessionStorage.getItem("role") == 4?3:sessionStorage.getItem("role");
 
     if (role == 2){
         $(".tbb").append(`<tr>
@@ -18,7 +18,7 @@ layui.use(['layer'], function () {
                             <td>任课科目:</td>
                             <td id="subject" colspan="3"></td>
                         </tr>`)
-    }else if (role == 3){
+    }else if (role == 3 || role==4){
         $(".tbb").append(`<tr>
                             <td>年级:</td>
                             <td id="stuGrade"></td>

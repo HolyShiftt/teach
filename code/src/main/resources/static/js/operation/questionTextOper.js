@@ -9,6 +9,29 @@ layui.use(['layer', 'form', 'laydate','element'], function () {
             id : parent.operId
         },
         success : function(d) {
+            if (d.answer3!=null){
+                $("#answerDiv").append(`<div class="layui-form-item">
+            <label class="layui-form-label">答案2<span style="color: red">*</span></label>
+            <div class="layui-input-block">
+                <input type="input" name="answer2" autocomplete="off" lay-verify="required" class="layui-input" />
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">答案3<span style="color: red">*</span></label>
+            <div class="layui-input-block">
+                <input type="input" name="answer3" autocomplete="off" lay-verify="required" class="layui-input" />
+            </div>
+        </div>`)
+                $("#select").val(3)
+            }else if (d.answer2!=null){
+                $("#answerDiv").append(`<div class="layui-form-item">
+            <label class="layui-form-label">答案2<span style="color: red">*</span></label>
+            <div class="layui-input-block">
+                <input type="input" name="answer2" autocomplete="off" lay-verify="required" class="layui-input" />
+            </div>
+        </div>`)
+                $("#select").val(2)
+            }
             form.val("questionForm", d);
             $("#text").val(d.answer);
         }

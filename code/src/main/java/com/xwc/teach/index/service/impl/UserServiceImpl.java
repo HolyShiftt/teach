@@ -73,4 +73,9 @@ public class UserServiceImpl implements UserService {
     public Teacher getTeacherSubject(Integer id) {
         return userDao.getTeacherSubject(id);
     }
+
+    @Override
+    public User getChild(Integer id) {
+        return userDao.getChild(id);
+    }
 }

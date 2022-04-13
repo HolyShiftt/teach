@@ -25,7 +25,12 @@
     </select>
     <select id="selectAll2" resultType="com.xwc.teach.index.entity.Notice">
         select * from notice
-      order by create_time asc
+        <where>
+            <if test="title != null and title !=''">
+                and title like concat('%',#{title},'%')
+            </if>
+        </where>
+        order by create_time asc
     </select>
 
 

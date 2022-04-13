@@ -23,8 +23,8 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
-    public List<Notice> selectAll2() {
-        return noticeDao.selectAll2();
+    public List<Notice> selectAll2(String title) {
+        return noticeDao.selectAll2(title);
     }
     @Override
     public int noticeAdd(Notice notice) {

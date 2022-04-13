@@ -68,10 +68,9 @@ layui.use(['layer','form'], function () {
 
 
     $("#search").click(function () {
-        courseTable.reload({
+        noticeTable.reload({
             where: {
-                grade:$("#grade").val(),
-                sclass:$("#sclass").val()
+                title:$("#title").val(),
             }
         });
     })

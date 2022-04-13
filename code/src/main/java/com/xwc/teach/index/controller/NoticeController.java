@@ -24,13 +24,13 @@ public class NoticeController {
 
     @RequestMapping("/noticeList")
     @ResponseBody
-    public Table noticeList(Integer limit, Pages pages){
+    public Table noticeList(Integer limit, Pages pages,String title){
         if (limit==5){
             List<Notice> list = noticeService.selectAll(limit);
             return Table.success(list);
         } else{
             Page<?> page = PageHelper.startPage(pages.getPage(), pages.getLimit());
-            List<Notice> list = noticeService.selectAll2();
+            List<Notice> list = noticeService.selectAll2(title);
             return Table.success(Long.valueOf(page.getTotal()),list);
         }
     }
