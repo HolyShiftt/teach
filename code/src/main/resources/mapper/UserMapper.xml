@@ -84,8 +84,9 @@
       select * from teacher where user_id = #{id}
     </select>
     <select id="getChild" resultType="com.xwc.teach.index.entity.User">
-      select u.* from parent p
+      select u.*,s.id as stuId from parent p
       left join `user` u on  u.id = p.stu_id
+      left join student s on  s.user_id = u.id
       where p.user_id = #{id}
     </select>
 </mapper>

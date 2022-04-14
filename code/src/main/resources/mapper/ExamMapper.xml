@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xwc.teach.exam.dao.ExamDao" >
     <insert id="examAdd">
-        insert into exam_info(name,start_time,end_time,subject,grade,sclass,teacher_id,radio_list,tell_list,text_list,sum)
-        values(#{name},#{startTime},#{endTime},#{subject},#{grade},#{sclass},#{teacherId},#{radioList},#{tellList},#{textList},#{sum})
+        insert into exam_info(name,start_time,end_time,subject,grade,sclass,teacher_id,radio_list,tell_list,text_list,sum,radio_score,tell_score,text_score)
+        values(#{name},#{startTime},#{endTime},#{subject},#{grade},#{sclass},#{teacherId},#{radioList},#{tellList},#{textList},#{sum},#{radioScore},#{tellScore},#{textScore})
     </insert>
     <update id="examUpd">
         update exam_info

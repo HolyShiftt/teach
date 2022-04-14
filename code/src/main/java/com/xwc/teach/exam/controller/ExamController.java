@@ -42,7 +42,7 @@ public class ExamController {
         int code = examService.examAdd(exam);
         result.setCode(code);
         if (code == 1){
-            result.setMsg("添加成功");
+            result.setMsg("考卷生成成功");
         }else{
             result.setMsg("添加失败");
         }

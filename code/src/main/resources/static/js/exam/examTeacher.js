@@ -291,25 +291,30 @@ layui.use(['layer','form'], function () {
             if ($("#radioNum").val()!=radioList.length && $("#tellNum").val()!=tellList.length && $("#textNum").val()!=textList.length ){
                 layer.alert("题目数量出错")
             }else{
-                $.ajax("/exam/examAdd", {
+                $.ajax({
+                    url:"/exam/examAdd",
                     data: {
-                        "name": $("#name").val()
-                        , "startTime": $("#startTime").val()
-                        , "endTime": $("#endTime").val()
-                        , "subject": subject
-                        , "grade": $("#grade").val()
-                        , "sclass": $("#sclass").val()
-                        , "teacherId": teacherId
-                        , "radioList": radioList
-                        , "radioScore": $("#radioScore").val()
-                        , "tellList": tellList
-                        , "tellScore": $("#tellScore").val()
-                        , "textList": textList
-                        , "textScore": $("#textScore").val()
-                        , "sum": $("#sum")
+                        name: $("#name").val()
+                        , startTime: $("#startTime").val()
+                        , endTime: $("#endTime").val()
+                        , subject: subject
+                        , grade: $("#grade").val()
+                        , sclass: $("#sclass").val()
+                        , teacherId: teacherId
+                        , radioList: radioList
+                        , radioScore: $("#radioScore").val()
+                        , tellList: tellList
+                        , tellScore: $("#tellScore").val()
+                        , textList: textList
+                        , textScore: $("#textScore").val()
+                        , sum: $("#sum").val()
                     },
+                    async : false,
                     success : function(d) {
-                        return false;
+                        layer.msg(d.msg, {
+                            icon: 6,
+                            time: 2000
+                        })
                     }
                 })
             }

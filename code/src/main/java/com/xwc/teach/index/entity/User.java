@@ -49,4 +49,6 @@ public class User {
     private Student student;
 
     private User children;
+
+    private Integer stuId;
 }

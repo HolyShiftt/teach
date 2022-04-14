@@ -21,6 +21,7 @@ layui.use(['layer', 'element'], function () {
                 }else if (data.msg.role == 4){
                     sessionStorage.setItem("childUname",data.msg.children.username)
                     sessionStorage.setItem("childRname",data.msg.children.realName)
+                    sessionStorage.setItem("stuId",data.msg.children.stuId)
                 }
 
                 layer.msg("登录成功，当前登录用户：" + data.msg.realName, {
