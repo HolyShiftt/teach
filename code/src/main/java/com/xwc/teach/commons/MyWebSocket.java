@@ -27,7 +27,6 @@ public class MyWebSocket {
         this.session = session;
         webSocketSet.add(this);     //加入set中
         System.out.println("有新连接加入！当前在线人数为" + webSocketSet.size());
-        this.session.getAsyncRemote().sendText("恭喜您成功连接上WebSocket-->当前在线人数为："+webSocketSet.size());
     }
     /**
      * 连接关闭调用的方法
