@@ -32,14 +32,18 @@ layui.use(function () {
                 document.getElementById('messag').innerHTML +=d[i].username+":"+ d[i].msg + '<br/>';
             }
         }})
+    //发送消息
+    window.send = function () {
+        var message = document.getElementById('text').value;
+        $.ajax("/notice/addChat?username="+sessionStorage.getItem("realName")+"&msg="+message,{
+        })
+        setMessageInnerHTML(message);
+
+        document.getElementById('text').value = null
+    }
 })
 // 将消息显示在网页上
 function setMessageInnerHTML(innerHTML) {
     document.getElementById('messag').innerHTML +=sessionStorage.getItem("realName")+":"+ innerHTML + '<br/>';
 }
-//发送消息
-function send() {
-    var message = document.getElementById('text').value;
-    setMessageInnerHTML(message);
-    document.getElementById('text').value = null
-}
+
