@@ -25,6 +25,13 @@ layui.use(function () {
     window.onbeforeunload = function() {
         websocket.close();
     }
+
+    $.ajax("/notice/chatList",{
+        success : function(d) {
+            for (let i = 0; i < d.length; i++) {
+                document.getElementById('messag').innerHTML +=d[i].username+":"+ d[i].msg + '<br/>';
+            }
+        }})
 })
 // 将消息显示在网页上
 function setMessageInnerHTML(innerHTML) {

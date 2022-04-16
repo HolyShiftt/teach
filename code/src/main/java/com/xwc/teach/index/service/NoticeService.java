@@ -1,5 +1,6 @@
 package com.xwc.teach.index.service;
 
+import com.xwc.teach.index.entity.Chat;
 import com.xwc.teach.index.entity.Notice;
 
 import java.util.List;
@@ -17,4 +18,7 @@ public interface NoticeService {
     Notice noticeInfo(Integer id);
 
     int noticeUpd(Notice notice);
+
+    List<Chat> chatList();
+    void addChat(String username, String msg);
 }

@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.xwc.teach.commons.Pages;
 import com.xwc.teach.commons.Result;
 import com.xwc.teach.commons.Table;
+import com.xwc.teach.index.entity.Chat;
 import com.xwc.teach.index.entity.Notice;
 import com.xwc.teach.index.entity.User;
 import com.xwc.teach.index.service.NoticeService;
@@ -81,5 +82,17 @@ public class NoticeController {
             result.setMsg("修改失败");
         }
         return result;
+    }
+
+    @RequestMapping("/chatList")
+    @ResponseBody
+    public List<Chat> chatList(){
+        return noticeService.chatList();
+    }
+
+    @RequestMapping("/addChat")
+    @ResponseBody
+    public void addChat(String username, String msg){
+        noticeService.addChat(username, msg);
     }
 }

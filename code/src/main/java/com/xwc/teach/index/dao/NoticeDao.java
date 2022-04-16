@@ -1,5 +1,6 @@
 package com.xwc.teach.index.dao;
 
+import com.xwc.teach.index.entity.Chat;
 import com.xwc.teach.index.entity.Notice;
 import com.xwc.teach.index.entity.User;
 import org.apache.ibatis.annotations.Mapper;
@@ -20,4 +21,8 @@ public interface NoticeDao {
     Notice noticeInfo(Integer id);
 
     int noticeUpd(Notice notice);
+
+    List<Chat> chatList();
+
+    void addChat(String username, String msg);
 }
